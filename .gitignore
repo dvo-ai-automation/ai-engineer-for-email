@@ -31,3 +31,6 @@ chroma/
 
 # Claude Code lokale instellingen
 .claude/settings.local.json
+
+# Kladwerk: ongeplaatste concepten, blijft lokaal
+notities/linkedin-posts.md
