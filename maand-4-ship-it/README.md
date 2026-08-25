@@ -1,8 +1,8 @@
-# Maand 4 — Shippen, laten zien, nieuwe projecten
+# Maand 4 — Shippen
 
 **22 oktober – 18 november 2026**
 
-**Doel:** alles wat je gebouwd hebt echt maken, en omzetten in waardevolle projecten.
+**Doel:** de twee beste builds uit maand 2 en 3 draaibaar maken voor iemand anders.
 Weinig nieuwe concepten, veel doen.
 
 Volledige uitwerking: [tabblad Roadmap in het dashboard](https://dvo-ai-automation.github.io/ai-engineer-4-months/) · [ROADMAP.md](../ROADMAP.md)
@@ -13,6 +13,16 @@ Volledige uitwerking: [tabblad Roadmap in het dashboard](https://dvo-ai-automati
 - **Langfuse** (tracing: prompt, response, tokenkosten, latency)
 - Kostenbeheersing: harde spending limits · caching · rate limiting · goedkopere modellen waar die volstaan
 
+## De opdracht
+
+Pak de twee beste van de vijf builds uit maand 2 en 3 en maak ze draaibaar voor iemand anders.
+Niet alle vijf. Twee, echt af.
+
+- [ ] Gedeployed, met harde spending limits, caching en rate limiting
+- [ ] Basis-tracing met Langfuse op minstens één ervan
+- [ ] Een README waarmee iemand anders het aan de praat krijgt zonder mij
+- [ ] Een demo die het laat zien zonder dat iemand het hoeft te installeren
+
 ## README-structuur voor elk portfolioproject
 
 1. Welk probleem het project oplost
@@ -20,6 +30,20 @@ Volledige uitwerking: [tabblad Roadmap in het dashboard](https://dvo-ai-automati
 3. Welke aanpak je koos en waarom
 4. **Wat er misging en wat je leerde** ← de sectie die bijna niemand schrijft
 5. Hoe je het draait
+
+## Posts deze maand
+
+Volledige kalender met voorwaarden en bewijs: [tabblad Posts in het dashboard](https://dvo-ai-automation.github.io/ai-engineer-4-months/#posts).
+
+**Week 13–14 (22 okt – 4 nov) · "'Stuk' en 'minder' zijn niet hetzelfde signaal"**
+Waarom alerting misgaat als je één drempel over beide legt. **Voorwaarde: build C draait op
+dummy-data en je hebt je eigen vals-positieven geteld**, vóór en ná het splitsen van de detectoren.
+Let op: dit raakt productoverlap met de alerting-tool van Funnelboost — toestemming vooraf.
+
+**Week 16 (12 – 18 nov) · "Vier maanden, de cijfers en wat er niet werkte"**
+De eerlijke terugblik. **Voorwaarde: maand 4 af**, twee projecten gedeployed met README en demo.
+Bewijs: alle getallen uit de eerdere posts bij elkaar, plus wat je niet hebt gehaald. De post is
+de afsluiting, niet de aankondiging.
 
 ## Richting kiezen (één)
 
@@ -29,8 +53,8 @@ Volledige uitwerking: [tabblad Roadmap in het dashboard](https://dvo-ai-automati
 
 ## Milestone
 
-- [ ] Een gedeployde AI-app met echte kostenbeheersing
-- [ ] Drie portfolioprojecten, elk met een eerlijke README
+- [ ] Twee gedeployde projecten met echte kostenbeheersing, elk met een eerlijke README
+- [ ] Een demo per project
 - [ ] Een heldere one-liner over wat je bouwt
 - [ ] Een zichtbaar spoor van werk in het openbaar
 - [ ] Een gekozen richting

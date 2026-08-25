@@ -1,8 +1,9 @@
-# Van nul naar AI engineer in 4 maanden
+# De programmeerkant onder mijn AI-werk
 
-Op 30 juli 2026 schreef ik mijn eerste regel Python. Op 18 november wil ik nog beter inzetbaar zijn als
-AI engineer. Alles wat ik onderweg bouw staat in deze repo — de werkende dingen en de lelijke,
-op de dag dat ze af zijn.
+Ik bouw al twee jaar AI- en automationoplossingen voor e-mailmarketing. Sinds 30 juli 2026 haal ik
+de programmeerkant eronder op: Python, API's, structured outputs, RAG, agents en evals — zelf
+kunnen bouwen, repareren en meten wat ik nu samenstel. Alles wat ik onderweg bouw staat in deze
+repo, de werkende dingen en de lelijke, op de dag dat ze af zijn.
 
 Geen cursus die ik verkoop, geen samenvatting achteraf. Een logboek dat meeloopt.
 
@@ -14,7 +15,7 @@ Voortgang per skill, de bouwopdrachten, de valkuilen en de mijlpalen van alle vi
 
 ## Wat je hier aan hebt
 
-**Loop je hetzelfde pad, of overweeg je het?** Dan is dit een uitgeschreven plan met de
+**Haal je de programmeerkant onder je eigen werk op?** Dan is dit een uitgeschreven plan met de
 resources er al bij uitgekozen, plus een eerlijk beeld van hoe lang dingen echt duren. Het
 [dashboard](https://dvo-ai-automation.github.io/ai-engineer-4-months/) is te kopiëren en de
 [ROADMAP](ROADMAP.md) vertelt je welke vier fouten dit soort trajecten meestal beëindigen.
@@ -58,9 +59,9 @@ De vier maanden lopen van 30 juli t/m 18 november 2026, bij 15–25 uur per week
 | Pad | Inhoud |
 |---|---|
 | [maand-1-fundament/](maand-1-fundament/) | Python, Git, terminal, API's, SQL · **nu bezig** |
-| [maand-2-llm-apis/](maand-2-llm-apis/) | Prompting, structured outputs, tool calling, streaming |
-| [maand-3-rag-agents/](maand-3-rag-agents/) | RAG, vector-DB's, agents, evals |
-| [maand-4-ship-it/](maand-4-ship-it/) | Deployment, portfolio, basis voor meer uitdagende projecten |
+| [maand-2-llm-apis/](maand-2-llm-apis/) | Prompting, structured outputs, tool calling, streaming · *subject line-evaluator · briefing naar campagnedocument* |
+| [maand-3-rag-agents/](maand-3-rag-agents/) | RAG, vector-DB's, agents, evals · *RAG over ESP-docs · evals op de evaluator · monitoring-agent* |
+| [maand-4-ship-it/](maand-4-ship-it/) | De twee beste builds deployen, met README en demo |
 | [ROADMAP.md](ROADMAP.md) | Het plan: doel, de twee regels, de vier valkuilen |
 | [prompts/](prompts/) | De prompts waarmee ik mezelf laat begeleiden |
 | [docs/](docs/) | Het dashboard hierboven, één self-contained HTML-bestand |
@@ -82,10 +83,11 @@ De tweede is de moeilijkste en de belangrijkste. Daarom staat in elke project-RE
 
 ## Bron
 
-Artikel: *"You can go from zero to hireable AI engineer in 4 months. Here's the exact path."*
-@free_ai_guides, 7 juli 2026 · https://x.com/i/article/2074513567701680128
+De structuur (de skills per maand, de twee regels, de vier valkuilen) komt uit een artikel van
+@free_ai_guides, 7 juli 2026 · https://x.com/i/article/2074513567701680128. De bouwopdrachten van
+maand 2 t/m 4 zijn van mezelf en komen uit mijn eigen vak; zie [ROADMAP.md](ROADMAP.md#over-de-bron).
 
-Vragen, of loop je hetzelfde pad? Open gerust een [issue](https://github.com/dvo-ai-automation/ai-engineer-4-months/issues).
+Vragen, of ben je met hetzelfde bezig? Open gerust een [issue](https://github.com/dvo-ai-automation/ai-engineer-4-months/issues).
 
 ## Licentie
 

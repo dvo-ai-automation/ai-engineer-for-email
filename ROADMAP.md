@@ -1,7 +1,10 @@
-# Roadmap: van nul naar AI engineer in 4 maanden
+# Roadmap: vier maanden de programmeerkant eronder
 
-Gebaseerd op het artikel *"You can go from zero to hireable AI engineer in 4 months. Here's the exact path."*
-(@free_ai_guides, 7 juli 2026 · https://x.com/i/article/2074513567701680128)
+Ik bouw al twee jaar AI- en automationoplossingen voor e-mailmarketing. Deze roadmap gaat over
+de laag daaronder: zelf kunnen bouwen, repareren en meten wat ik nu samenstel.
+
+De structuur komt uit een artikel van @free_ai_guides (7 juli 2026 · https://x.com/i/article/2074513567701680128);
+de bouwopdrachten van maand 2 t/m 4 zijn van mezelf. Zie [Over de bron](#over-de-bron).
 
 - **Start:** donderdag 30 juli 2026
 - **Einde:** woensdag 18 november 2026 (16 weken)
@@ -12,7 +15,7 @@ Gebaseerd op het artikel *"You can go from zero to hireable AI engineer in 4 mon
 | 1 | 30 jul – 26 aug | Python en de plumbing |
 | 2 | 27 aug – 23 sep | Bouwen met LLM-API's |
 | 3 | 24 sep – 21 okt | RAG en agents |
-| 4 | 22 okt – 18 nov | Shippen, laten zien, in productie brengen |
+| 4 | 22 okt – 18 nov | Shippen |
 
 > ### 📊 [De volledige uitwerking staat in het dashboard →](https://dvo-ai-automation.github.io/ai-engineer-4-months/)
 >
@@ -28,6 +31,9 @@ Gebaseerd op het artikel *"You can go from zero to hireable AI engineer in 4 mon
 
 Je bouwt producten bovenop bestaande modellen. Geen calculus, geen backpropagation, geen
 transformer-internals. Dat is een ander vak (research scientist).
+
+Wat dit traject mij oplevert is diepte, geen inzetbaarheid: die is er al. Het verschil dat ik
+zoek is dat ik straks een getal kan laten zien waar ik nu een claim heb.
 
 ---
 
@@ -59,6 +65,44 @@ Fix: begin in maand 1. Niemand kijkt zo aandachtig mee dat je vroege werk je in 
 bezitten van een uitkomst zwaarder dan het aantal frameworks dat je kent. Dat is precies wat
 je uit je huidige werk meeneemt en niet opnieuw hoeft te leren. Houd dit vier maanden lang in
 je achterzak.
+
+---
+
+## Wat ik in maand 2 t/m 4 bouw
+
+*Eigen invulling, geen onderdeel van het bronartikel. De volledige postkalender met voorwaarden,
+benodigd bewijs en toestemmingen staat in het [tabblad Posts](https://dvo-ai-automation.github.io/ai-engineer-4-months/#posts). De structuur van de roadmap (de skills per
+maand, de twee regels, de vier valkuilen) blijft staan; de projecten zijn vervangen door builds
+uit mijn eigen vak, zodat elke build ook zonder deze roadmap nut houdt.*
+
+**Maand 2 · LLM-API's** — [details](maand-2-llm-apis/README.md)
+
+- **A. Subject line- en preheader-evaluator.** Claude API met een JSON-schema als output: score, inbox-weergave per client, spamwoord-risico, merkstem-fit met de merkstem als parameter. Draait op zelfverzonnen subject lines en publieke nieuwsbrieven, geen klantdata.
+- **B. Briefing naar campagnedocument.** Tool calling: een input-briefing eruit, mijn vaste documentstructuur erin.
+- **Post:** honderd subject lines door de evaluator, en waar hij er structureel naast zit. De faalgevallen, niet de demo.
+
+**Maand 3 · RAG en agents** — [details](maand-3-rag-agents/README.md)
+
+- **A. RAG over ESP-documentatie.** Copernica- en Klaviyo-docs in een vector-DB plus een vraag-antwoordlaag. Publieke bron, en hij draagt over klanten heen.
+- **B. Evals op de evaluator uit maand 2.** Vijftig gelabelde subject lines, en meten hoe vaak de prompt het goed heeft. De belangrijkste build van het traject.
+- **C. Journey-monitor.** De generieke versie van het journey-overzicht dat ik nu handmatig bijhoud: adapter per ESP met één vaste output, en twee gescheiden detectoren (stuk = deterministisch, minder = statistisch met drempel). From scratch, op dummy-data.
+- **Posts:** week 9 het journey-patroon (na de nulmeting en het publicatiegesprek) · week 12 de evals, met het getal erbij.
+
+**Maand 4 · Shippen** — [details](maand-4-ship-it/README.md)
+
+- De twee beste builds draaibaar maken voor iemand anders: deployment, README, demo.
+- **Posts:** week 13–14 het alerting-ontwerp, "stuk" versus "minder" (toestemming werkgever) · week 16 de eerlijke terugblik met de cijfers, inclusief wat niet werkte.
+
+---
+
+## Over de bron
+
+Het bronartikel heet *"You can go from zero to hireable AI engineer in 4 months"*. De inhoud is
+standaard en daarom bruikbaar; de belofte in de kop is dat niet, en die geldt hier sowieso niet.
+Ik heb de baan al. Wat ik hieruit haal is diepte.
+
+De twee beste dingen uit dat artikel houd ik onveranderd: de 30-minutenregel en "alles gaat
+publiek". De projecten van maand 2 t/m 4 heb ik vervangen door de builds hierboven.
 
 ---
 
