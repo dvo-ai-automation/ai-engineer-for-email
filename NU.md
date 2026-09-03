@@ -109,7 +109,7 @@ Zodat je weet waarom je dit doet, in één regel per week. Verder vooruit kijk j
 
 | Week | Wat |
 |---|---|
-| **7** (10–16 sep) | Je 40 records door een model halen met een Pydantic-schema erop. Dat is het structured-outputs-blok van maand 2, geoefend op data die je al hebt. Post 1 gaat live. |
+| **7** (10–16 sep) | Je records door een model halen met een Pydantic-schema erop: het structured-outputs-blok, geoefend op data die je al hebt. Post 1 gaat live. |
 | **8** (17–23 sep) | De subject-checker, met hetzelfde schemapatroon dat je in week 7 al een keer hebt gebouwd. Post 2 gaat live, met de getallen van 9 september erin. |
 
 Alles daarna: [ROADMAP.md](ROADMAP.md) en het [dashboard](https://dvo-ai-automation.github.io/ai-engineer-for-email/). Niet vandaag.

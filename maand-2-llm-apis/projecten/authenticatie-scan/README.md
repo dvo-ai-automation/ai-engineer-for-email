@@ -23,6 +23,16 @@ En daarmee levert hij en passant de makkelijkste eval-set die er is: een DMARC-v
 een objectief goed antwoord. Als je in maand 3 je eerste eval bouwt, wil je beginnen op een set
 waar vaststaat wat goed is, vóór je aan subject lines begint waar het label discutabel is.
 
+## Wat dit wél en niet meet
+
+Dit meet **authenticatie**, niet deliverability. Dat onderscheid moet je zelf maken voordat
+iemand uit het vak het voor je maakt: reputatie, engagement, bounce-afhandeling, lijsthygiëne,
+blocklists en warm-up zitten hier niet in, en die hangen aan verzendgedrag over tijd op een echt
+domein. Authenticatie is het stuk dat van buitenaf publiek meetbaar is, en dat is precies waarom
+er een post uit kan.
+
+Claim in je post dus geen deliverability. Claim wat je gemeten hebt.
+
 ## Opzet
 
 | Stap | Wat | Model nodig? |

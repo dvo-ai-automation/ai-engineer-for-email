@@ -74,11 +74,13 @@ omdat de maand te vol wordt, is het deze.
 
 Deze drie builds dragen álle skills van deze maand:
 
-- **Prompting** → vijf promptversies van de checker, alle vijf gedraaid, outputs naast elkaar. Bewaren: dit is de nulmeting voor de evals in maand 3.
+- **Prompting** → vijf genummerde promptversies van de checker: v1 kaal, v2 specifiek, v3 chain-of-thought, v4 few-shot, v5 de combinatie. Ze staan als aanvinkbare stappen in [`projecten/subject-checker/`](projecten/subject-checker/) en de bestanden horen in `prompts/v1.txt` t/m `v5.txt`. De vijf few-shot-voorbeelden gaan apart in `few-shot.jsonl` en mogen nooit in de eval-set van maand 3.
 - **Structured outputs** → eerst op de records uit build C, daarna op de subject lines in build A.
-- **Streaming** → de checker streamt zijn oordeel terwijl het binnenkomt.
+- **Streaming** → skill hier, toepassing in maand 4. De checker streamt níét: hij geeft een klein object terug en draait als batch over het corpus. Streamen is pas zinnig bij de voordeur, waar een mens zit te wachten.
 - **Conversation state** → de briefing-tool vraagt door bij een onvolledige briefing en houdt de history zelf bij.
-- **Failure handling** → Tenacity op alle drie, en een onverwacht antwoord sloopt nooit de run.
+- **Failure handling** → Tenacity op alle drie. Concreet: de batchrun over duizend mails mag niet stoppen bij mail 400, en een mail die drie keer faalt wordt overgeslagen én gelogd, niet stilgeslikt.
+- **Kosten** → reken uit wat de hele batchrun kost vóór je op enter drukt, schrijf het getal op, en vergelijk met de rekening.
+- **Prompt injection** → geen theorie hier: je voert marketingmails van derden aan een model. Zet in een testmail een regel die de checker opdraagt alles 'redactioneel' te noemen en kijk of je schema hem tegenhoudt.
 
 ## Posts deze maand
 

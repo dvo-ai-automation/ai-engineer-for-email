@@ -45,7 +45,11 @@ geen klantdata, geen toestemming nodig.
 - [ ] Chunken (~500 / overlap ~50), opslaan in Chroma met metadata per merk, datum, type (promo, transactioneel, redactioneel) en sector
 - [ ] Metadata-filtering: op merk, op periode, op type
 - [ ] Reranking: breed ophalen, terugscoren naar de beste paar
-- [ ] Clusteren en doorzoeken
+- [ ] **Analyse 1 · e-maildruk**: groeperen op merk en datum en tellen. Geen model nodig, en het is de opening van de post van week 10–11
+- [ ] **Analyse 2 · lifecycle**: wat 50 webshops sturen in je eerste dertig dagen. Alleen het moment dat je toch al observeert
+- [ ] **Analyse 3 · clustering**: welke groepen vallen er vanzelf uit, en welke had je niet verwacht
+- [ ] **Vraag-antwoordlaag met citaties**: een antwoord mét de mails eronder waar het uit blijkt. Hier landen grounding en reranking, en hier haal je elke bewering uit je post doorheen vóór je hem plaatst
+- [ ] Merken normaliseren vóór je gaat tellen: één webshop mailt vanaf drie afzenderadressen. Dit is je eerste echte stukje datamodellering
 
 **De val zit in de doorlooptijd, niet in de techniek.** Het corpus moet in week 5 gaan
 verzamelen. Zonder aanmelden geen build.

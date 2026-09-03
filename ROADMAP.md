@@ -105,14 +105,22 @@ kan gebruiken. Haalt een build die drie niet, dan is het een oefening en geen po
 in de resterende weken passen. Ze staan hier zodat ze niet verdwijnen, niet omdat ze nu aan de
 beurt zijn.*
 
-**1. De datalaag.** Deze roadmap maakt me expert in AI over tékst — subject lines, preheaders,
-copy, briefings. Geen enkele build raakt een contact, een event, een aankoop of een segment.
+**1. De datalaag: RFM, retentie-analyses en het datamodel eronder.** Deze roadmap maakt me
+expert in AI over tékst — subject lines, preheaders, copy, briefings. Geen enkele build raakt
+een contact, een event, een aankoop of een segment. Daarmee vallen drie onderwerpen die in mijn
+vak zwaar wegen volledig buiten dit traject: **RFM-modellen**, **retentie- en cohortanalyses**,
+en **het datamodel** waar die twee op rusten (contacten, events, sends en orders koppelen met
+identiteiten die niet matchen). Ze hebben alle drie gedragsdata op contactniveau nodig, en die
+heb ik niet zonder klant.
 Maar de vraag waar mijn doelgroep op vastloopt is niet "schrijf een betere onderwerpregel"
 (dat doen ze zelf met ChatGPT), het is "wie krijgt wat, en wanneer". Dat is een datavraagstuk:
 ESP-events, shopdata en analytics aan elkaar knopen op contactniveau, met identiteiten die niet
 matchen. SQL staat in maand 1 genoemd en is stilzwijgend nooit gebeurd.
 
-Het is te groot voor elf weken naast RAG, evals en shippen. Het is wel het onderwerp van het
+Wat er wél van in dit traject zit: het normaliseren, dedupliceren en classificeren van de
+merken in het corpus. Datzelfde werk, op een schaal die in één maand past.
+
+De rest is te groot voor elf weken naast RAG, evals en shippen. Het is wel het onderwerp van het
 volgende traject. Het kan zonder klantdata: er bestaan publieke transactiedatasets van echte
 webshops — echte aankopen, alleen niet uit mijn markt, dus het mechanisme is overdraagbaar en
 het getal niet. Dat is wat je erbij zegt.
