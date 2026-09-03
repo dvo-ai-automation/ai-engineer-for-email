@@ -397,7 +397,7 @@ const MODS = [
         ["Ken het verschil tussen échte structured outputs (schema afgedwongen) en losse JSON-mode (niet gegarandeerd)","Dit onderscheid bepaalt of je code blind kan vertrouwen op de vorm van de output.",[]]
       ],
       build:"BUILD A · Subject line- en preheader-checker. Claude API met een JSON-schema als output, gericht op wat objectief te controleren is: weergave per client (Gmail, Outlook, Apple Mail, mobiel) met het afkappunt in tekens en pixels, preheader-lengte en of de eerste regel body de preheader opeet, emoji-rendering en fallback per platform. Merkstem blijft een parameter voor context, geen score. Draait op publieke nieuwsbrieven en zelfverzonnen regels: geen klantdata. Elke uitspraak van deze tool moet in Maand 3 tegen een gelabelde set te houden zijn.",
-      buildPad:"projecten/subject-evaluator/",
+      buildPad:"projecten/subject-checker/",
       buildLinks:[["Prompt 2 · Structured Data Extraction","#prompts"]],
       trap:"Bekende faalmodus: het model wikkelt de JSON soms in markdown code fences of zet er een vriendelijke zin voor, waardoor je parser stukloopt. Fix: strip de code fences vóór het parsen, en wees expliciet dat je alléén het JSON-object wilt."
     },
@@ -751,10 +751,10 @@ const POSTS = [
     bewijs:"Mechanisme, geen n. De geloofwaardigheid zit in de uitleg en in een publiek te citeren consent-benchmark, niet in een eigen cijfer.",
     toestemming:"" },
   { id:"p2", mod:"m2", week:"Week 8", periode:"17 – 23 sep",
-    titel:"Honderd subject lines door mijn eigen evaluator, en waar hij structureel faalt",
-    kern:"Niet de demo, de faalgevallen. Welke categorieën subject lines de evaluator consequent verkeerd beoordeelt, en wat dat zegt over wat een model wel en niet van een inbox begrijpt.",
-    gate:"NA BUILD A (subject-evaluator) en na honderd regels erdoorheen. Zonder die honderd heb je een mening in plaats van een bevinding.",
-    bewijs:"n=100, zelf verzonnen of uit publieke nieuwsbrieven. Noem het schema, de promptversie, en de faalcategorieën met aantallen.",
+    titel:"Honderd echte subject lines door mijn eigen checker, en waar hij structureel faalt",
+    kern:"Niet de demo, de faalgevallen. Welke categorieën subject lines de checker consequent verkeerd beoordeelt, en wat dat zegt over wat een model wel en niet van een inbox begrijpt.",
+    gate:"NA BUILD A (subject-checker) en na honderd echte regels erdoorheen. Zonder die honderd heb je een mening in plaats van een bevinding.",
+    bewijs:"Echte subject lines uit het nieuwsbrief-corpus, niet zelfverzonnen. Noem het aantal doorgemeten regels, uit hoeveel merken ze komen, het schema, de promptversie, en de faalcategorieën met aantallen. Het corpus loopt vanaf week 5, dus in week 8 is er genoeg; tel wat er dan echt in zit.",
     toestemming:"" },
   { id:"p3", mod:"m3", week:"Week 9", periode:"24 – 30 sep",
     titel:"Er staan journeys live die niemand meer kan benoemen",
@@ -762,26 +762,26 @@ const POSTS = [
     gate:"NA de nulmeting én na het publicatiegesprek. Vraag die toestemming in week 5 aan, niet in week 9, anders schuift de post een maand op.",
     bewijs:"Het aantal live journeys dat niemand kon benoemen, relatief gebracht. Geen omzet, geen merknaam, geen sector.",
     toestemming:"TOESTEMMING NODIG · klant. En let op afleidbaarheid: sector plus aantal merken maakt de klant in Nederland herkenbaar, ook zonder naam. Schrijf het als patroon over meerdere klanten." },
+  { id:"p7", mod:"m3", week:"Week 10–11", periode:"1 – 14 okt",
+    titel:"Wat duizend Nederlandse nieuwsbrieven laten zien als je ze door embeddings haalt",
+    kern:"De clustering: welke groepen er vanzelf uit vallen, welke patronen daarin zitten, en wat dat zegt over hoe Nederlandse webshops hun e-mail inrichten. Beschrijf ook de clusters die je niet had verwacht en de clusters die niets bleken te betekenen.",
+    gate:"NA BUILD A van Maand 3, en pas als het corpus groot genoeg is. Geen post zonder n. Het corpus verzamelt vanaf week 5; is er in week 10 te weinig volume, dan schuift de post op in plaats van dat je de conclusie oprekt.",
+    bewijs:"Het werkelijke aantal mails en het werkelijke aantal merken in het corpus, de clusterverdeling zoals die eruit komt, en de periode waarover verzameld is. Meet alle vier vóór je schrijft; vul hier geen richtgetal in.",
+    toestemming:"" },
   { id:"p4", mod:"m3", week:"Week 12", periode:"15 – 21 okt",
-    titel:"Mijn prompt had het naar eigen zeggen altijd goed. Tegen vijftig gelabelde voorbeelden was het 68 procent",
+    titel:"Mijn prompt had het naar eigen zeggen altijd goed. Tegen vijftig gelabelde voorbeelden bleek dat anders",
     kern:"Het verschil tussen een claim en een getal. Wat een eval-set is, hoe je er een bouwt, en wat er gebeurde toen je je eigen werk ertegen hield.",
     gate:"NA BUILD B (evals). Dit is de sterkste post van het traject en de enige die niemand kan verzinnen, dus wacht tot het getal er echt is.",
-    bewijs:"n=50 gelabelde subject lines, score per veld uit het schema, plus het verschil tussen de vijf promptversies uit Maand 2. Volledig eigen data.",
+    bewijs:"Vijftig gelabelde subject lines, getrokken uit het nieuwsbrief-corpus in plaats van zelf verzonnen: noem hoe je ze getrokken hebt en uit hoeveel merken. Verder de score per veld uit het schema, plus het verschil tussen de vijf promptversies uit Maand 2. Het percentage in de titel vul je pas in als je het gemeten hebt.",
     toestemming:"" },
   { id:"p5", mod:"m4", week:"Week 13–14", periode:"22 okt – 4 nov",
     titel:"\u2018Stuk\u2019 en \u2018minder\u2019 zijn niet hetzelfde signaal",
-    kern:"Waarom campagne-alerting misgaat als je één drempel over beide legt: je mist storingen, of je leert stakeholders je meldingen weg te klikken. Het onderscheid tussen deterministische en statistische detectie, met de drempels erbij.",
-    gate:"NA BUILD C (journey-monitor), zodra hij op dummy-data draait en je je eigen vals-positieven hebt geteld.",
-    bewijs:"Je eigen drempels en het aantal vals-positieven op dummy-data, vóór en ná het splitsen van de detectoren.",
-    toestemming:"TOESTEMMING NODIG · werkgever. Funnelboost bouwt zelf een alerting-tool; dit raakt productoverlap. Los gesprek van het klantgesprek bij p3." },
-  { id:"p6", mod:"m4", week:"Week 16", periode:"12 – 18 nov",
-    titel:"Vier maanden, de cijfers en wat er niet werkte",
-    kern:"De eerlijke terugblik. Geen highlight-reel: de eval-score, wat de evaluator structureel fout bleef doen, wat je hebt weggegooid en wat je zou overdoen.",
-    gate:"NA MAAND 4: twee projecten gedeployed, met README en demo. De post is de afsluiting, niet de aankondiging.",
-    bewijs:"Alle getallen uit p2, p4 en p5 bij elkaar, plus de dingen die je niet hebt gehaald.",
+    kern:"Waarom campagne-alerting misgaat als je één drempel over beide legt: je mist storingen, of je leert stakeholders je meldingen weg te klikken. Het onderscheid tussen deterministische en statistische detectie, met de drempels erbij. Alleen de signaalsplitser op synthetische tijdreeksen; de ESP-kant blijft buiten de post.",
+    gate:"NA BUILD C (signaalsplitser), zodra hij op synthetische data draait en je je eigen vals-positieven hebt geteld.",
+    bewijs:"Je eigen drempels en het aantal vals-positieven op je synthetische reeksen, vóór en ná het splitsen van de detectoren. Beide tellen, niet schatten.",
+    aanname:"AANNAME, ZELF VERIFIËREN. De toestemming van de werkgever is hier weggehaald omdat de signaalsplitser geen ESP-adapter meer bevat en dus niet overlapt met de alerting-tool die Funnelboost zelf bouwt. Dat is mijn eigen inschatting, niet iets wat is voorgelegd. Klopt hij niet, of gaat de post alsnog over de adapterkant, dan is de toestemming er wél weer.",
     toestemming:"" }
 ];
-
 /* Week 4 (20-26 aug) is de actieve week; bijgewerkt op 21 aug 2026. */
 const WEEK1 = [
   "BOUW DE WEATHER CLI. Open-Meteo aanroepen met requests, het JSON-antwoord uitpakken en schoon printen. De venv staat en requests is geïnstalleerd, er is geen college meer dat je eerst moet doen",
@@ -1241,6 +1241,7 @@ function postCardHtml(p){
       <dl class="pmeta">
         <dt>Voorwaarde</dt><dd>${esc(p.gate)}</dd>
         <dt>Bewijs</dt><dd>${esc(p.bewijs)}</dd>
+        ${p.aanname ? `<dt>Aanname</dt><dd class="warn">${esc(p.aanname)}</dd>` : ""}
         ${p.toestemming ? `<dt>Let op</dt><dd class="warn">${esc(p.toestemming)}</dd>` : ""}
       </dl>
       <div class="pstatus">
@@ -1256,7 +1257,7 @@ function renderPosts(){
   el.innerHTML = `
     <div class="sect-title"><h2>Posts</h2><span class="n">${done} van de ${POSTS.length} gepubliceerd · dashboard-toevoeging</span></div>
     <div class="card" style="margin-bottom:16px">
-      <div class="expl">Grondregel 2 is "alles gaat publiek", en dat geldt ook voor wat je schrijft. Elke post hieronder heeft een week, een <b>voorwaarde</b> (na welke build of doelstelling je hem opstelt), en het <b>bewijs</b> dat hij nodig heeft: n en methode, of eerlijk gezegd dat er geen n is. Twee posts vragen eerst toestemming; die staan gemarkeerd. Vraag die toestemming aan in week 5, niet in de week van publicatie.<br><br>Wat je hier niet doet: klantcijfers, merknamen, of details waaruit de klant af te leiden is. Wat je hier wél doet: je eigen faalpercentages publiceren. Die zijn van jou, ze kosten je niets, en ze leveren meer vertrouwen op dan elke succesclaim.</div>
+      <div class="expl">Grondregel 2 is "alles gaat publiek", en dat geldt ook voor wat je schrijft. Elke post hieronder heeft een week, een <b>voorwaarde</b> (na welke build of doelstelling je hem opstelt), en het <b>bewijs</b> dat hij nodig heeft: n en methode, of eerlijk gezegd dat er geen n is. Eén post vraagt eerst toestemming; die staat gemarkeerd. Vraag die aan in week 5, niet in de week van publicatie.<br><br>Wat je hier niet doet: klantcijfers, merknamen, of details waaruit de klant af te leiden is. Wat je hier wél doet: je eigen faalpercentages publiceren. Die zijn van jou, ze kosten je niets, en ze leveren meer vertrouwen op dan elke succesclaim.</div>
     </div>
     ${POSTS.map(postCardHtml).join("")}
   `;

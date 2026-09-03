@@ -26,7 +26,7 @@ Prompting · structured outputs · tool calling · streaming.
 
 ## Builds
 
-**A · Subject line- en preheader-checker** — [`projecten/subject-evaluator/`](projecten/)
+**A · Subject line- en preheader-checker** — [`projecten/subject-checker/`](projecten/subject-checker/)
 
 De structured-outputs-opdracht, maar dan in mijn eigen vak. Claude API met een JSON-schema als
 output, gericht op wat objectief te controleren is. Per subject line + preheader terug:

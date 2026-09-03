@@ -36,14 +36,14 @@ Niet alle vijf. Twee, echt af.
 Volledige kalender met voorwaarden en bewijs: [tabblad Posts in het dashboard](https://dvo-ai-automation.github.io/ai-engineer-4-months/#posts).
 
 **Week 13–14 (22 okt – 4 nov) · "'Stuk' en 'minder' zijn niet hetzelfde signaal"**
-Waarom alerting misgaat als je één drempel over beide legt. **Voorwaarde: build C draait op
-dummy-data en je hebt je eigen vals-positieven geteld**, vóór en ná het splitsen van de detectoren.
-Let op: dit raakt productoverlap met de alerting-tool van Funnelboost — toestemming vooraf.
+Waarom alerting misgaat als je één drempel over beide legt. Alleen de signaalsplitser op
+synthetische tijdreeksen; de ESP-kant blijft buiten de post. **Voorwaarde: build C draait op
+synthetische data en je hebt je eigen vals-positieven geteld**, vóór en ná het splitsen van de
+detectoren.
 
-**Week 16 (12 – 18 nov) · "Vier maanden, de cijfers en wat er niet werkte"**
-De eerlijke terugblik. **Voorwaarde: maand 4 af**, twee projecten gedeployed met README en demo.
-Bewijs: alle getallen uit de eerdere posts bij elkaar, plus wat je niet hebt gehaald. De post is
-de afsluiting, niet de aankondiging.
+*AANNAME, ZELF VERIFIËREN: de toestemming van Funnelboost is hier weggehaald omdat de
+signaalsplitser geen ESP-adapter meer bevat en dus niet overlapt met de alerting-tool die zij
+zelf bouwen. Dat is mijn eigen inschatting, niet iets wat is voorgelegd.*
 
 ## Richting kiezen (één)
 
