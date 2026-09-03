@@ -32,39 +32,47 @@ RAG · vector-DB's · agents · evals.
 
 ## Builds
 
-**A · RAG over ESP-documentatie** — [`projecten/esp-docs-rag/`](projecten/)
+**A · Corpus van Nederlandse B2C-nieuwsbrieven** — [`projecten/nieuwsbrief-corpus/`](projecten/nieuwsbrief-corpus/)
 
-De Copernica- en Klaviyo-docs in een vector-DB, plus een vraag-antwoordlaag. Publieke bron,
-direct nuttig, en hij draagt over klanten heen — precies het portabiliteitscriterium.
+Eén apart e-mailadres, 40 tot 60 Nederlandse webshops, vanaf week 5 verzamelen. Levert dezelfde
+skills als een RAG over documentatie (chunken, embedden, metadata-filtering, retrieval,
+reranking), maar produceert een bevinding in plaats van een vraagbaak. Publieke bron, eigen data,
+geen klantdata, geen toestemming nodig.
 
-- [ ] Warming-up: 20 zinnen embedden en de drie meest vergelijkbare teruggeven, zodat de mechaniek klopt voordat de echte docs erin gaan
-- [ ] Docs ingesten, chunken (~500 / overlap ~50), opslaan in Chroma met metadata (bron, ESP, sectie)
-- [ ] Metadata-filtering: alleen Copernica, alleen Klaviyo, of allebei
+- [ ] Warming-up: 20 zinnen embedden en de drie meest vergelijkbare teruggeven, zodat de mechaniek klopt voordat de echte mails erin gaan
+- [ ] Binnenhalen via IMAP; HTML parsen naar platte tekst, met subject en preheader apart
+- [ ] Chunken (~500 / overlap ~50), opslaan in Chroma met metadata per merk, datum, type (promo, transactioneel, redactioneel) en sector
+- [ ] Metadata-filtering: op merk, op periode, op type
 - [ ] Reranking: breed ophalen, terugscoren naar de beste paar
-- [ ] Antwoorden mét citaat naar de bronpagina. Zonder bron geen antwoord
+- [ ] Clusteren en doorzoeken
 
-**B · Evals op de evaluator uit maand 2** — [`projecten/evaluator-evals/`](projecten/)
+**De val zit in de doorlooptijd, niet in de techniek.** Het corpus moet in week 5 gaan
+verzamelen. Zonder aanmelden geen build.
+
+**B · Evals op de checker uit maand 2** — [`projecten/evaluator-evals/`](projecten/)
 
 **De belangrijkste build van het hele traject**, en degene die vrijwel niemand in
 e-mailmarketing doet. Dit is het verschil tussen een claim en een getal.
 
-- [ ] Testset van vijftig gelabelde subject lines. Eerst labelen, dan pas draaien
+- [ ] Testset van vijftig gelabelde subject lines, getrokken uit het corpus uit build A in plaats van zelf verzonnen. Eerst labelen, dan pas draaien
 - [ ] Meet hoe vaak de prompt het goed heeft, per veld uit het schema
 - [ ] Draai de vijf promptversies uit maand 2 tegen dezelfde set; nu weet je welke wint en met hoeveel
 - [ ] Elke promptwijziging vanaf hier gaat langs deze set
 
-**C · Journey-monitor** — [`projecten/journey-monitor/`](projecten/)
+**C · Signaalsplitser** — [`projecten/signaalsplitser/`](projecten/)
 
-De generieke versie van het journey-overzicht dat ik nu wekelijks met de hand bijhoud. Landt hier
-en niet eerder: pas met retrieval en evals eronder is het meer dan een while-loop met goede
-bedoelingen. **Draait op dummy-data — geen klantdata in deze repo.**
+Een detector die twee soorten signalen strikt gescheiden houdt, op synthetische tijdreeksen
+**zonder ESP-koppeling**. Landt hier en niet eerder: pas met retrieval en evals eronder is het
+meer dan een while-loop met goede bedoelingen.
 
-- [ ] Een adapter per ESP met één vaste output: journey-ID, naam, status, doelgroep, laatst verzonden, prestatie week-op-week. Een tweede ESP erbij is dan een adapter, geen fork
-- [ ] Detector 1 — **stuk**: deterministisch. Verzending niet uitgevoerd, journey vuurt niet meer, aantallen op nul, lege feed. Hier hoort geen drempel bij, alleen een controle
+- [ ] Detector 1 — **stuk**: deterministisch. Geen verzending uitgevoerd, aantallen op nul, lege feed. Hier hoort geen drempel bij, alleen een controle
 - [ ] Detector 2 — **minder**: statistisch. Daling boven een drempel, met een minimumvolume en een voortschrijdend gemiddelde over vier weken. Zonder die twee meld je ruis
 - [ ] Die twee niet door elkaar halen. Het is de klassieke fout in alerting: één drempel over beide, waarna je óf storingen mist óf stakeholders leert je meldingen te negeren
 - [ ] From scratch, geen framework, eigen loop. **Doe dit vóór je LangGraph aanraakt**
 - [ ] Een falende tool-call laat de loop niet hangen en niet stil crashen
+
+De ESP-adapters en het journey-overzicht horen hier niet in: Funnelboost bouwt zelf alerting, dus
+die kant blijft intern.
 
 ## Posts deze maand
 
@@ -76,10 +84,17 @@ Het patroon, niet de klant. **Voorwaarde: de nulmeting vastgelegd én het public
 gebracht. Geen omzet, geen merknaam, geen sector — sector plus aantal merken maakt de klant in
 Nederland herkenbaar, ook zonder naam.
 
-**Week 12 (15 – 21 okt) · "Tegen vijftig gelabelde voorbeelden was het 68 procent"**
+**Week 10–11 · "Wat duizend Nederlandse nieuwsbrieven laten zien als je ze door embeddings haalt"**
+De clustering, welke patronen eruit vallen en wat dat zegt over hoe Nederlandse webshops hun
+e-mail inrichten. **Voorwaarde: build A af én het corpus groot genoeg.** Geen post zonder n.
+Bewijs: het werkelijke aantal mails en merken, de clusterverdeling en de periode waarover
+verzameld is.
+
+**Week 12 (15 – 21 okt) · "Tegen vijftig gelabelde voorbeelden bleek het iets anders"**
 Het verschil tussen een claim en een getal. **Voorwaarde: build B af.** De sterkste post van het
-traject en de enige die niemand kan verzinnen, dus wachten tot het getal er echt is. Bewijs: n=50,
-score per veld, plus het verschil tussen de vijf promptversies uit maand 2. Volledig eigen data.
+traject en de enige die niemand kan verzinnen, dus wachten tot het getal er echt is. Bewijs:
+vijftig gelabelde regels uit het corpus, score per veld, plus het verschil tussen de vijf
+promptversies uit maand 2. Het percentage in de titel vul je pas in als je het gemeten hebt.
 
 ## Milestone
 

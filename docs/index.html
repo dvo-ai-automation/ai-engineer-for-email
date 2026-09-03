@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Leerpad: de programmeerkant onder mijn AI-werk</title>
-<meta name="description" content="Interactief leerpad-dashboard: vier maanden de programmeerkant onder mijn AI-werk in e-mailmarketing. Voortgang per skill, bouwopdrachten, valkuilen en mijlpalen.">
-<meta property="og:title" content="Leerpad: de programmeerkant onder mijn AI-werk">
-<meta property="og:description" content="Interactief leerpad-dashboard: vier maanden verdieping naast mijn AI- en automationwerk in e-mailmarketing.">
+<title>Werkoverzicht</title>
+<meta name="description" content="Werkoverzicht: de tools die ik bouw voor e-mailmarketing en CRM-automatisering, per onderwerp, met de bouwopdrachten en de postkalender.">
+<meta property="og:title" content="Werkoverzicht">
+<meta property="og:description" content="De tools die ik bouw voor e-mailmarketing en CRM-automatisering: prompting en structured outputs, retrieval, agents en evals.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://dvo-ai-automation.github.io/ai-engineer-4-months/">
 <meta property="og:image" content="https://dvo-ai-automation.github.io/ai-engineer-4-months/og.png">
 <meta property="og:image:width" content="2400">
 <meta property="og:image:height" content="1260">
-<meta property="og:image:alt" content="De programmeerkant onder mijn AI-werk. Publiek leerlogboek, vier maanden.">
+<meta property="og:image:alt" content="Werkoverzicht: tools voor e-mailmarketing en CRM-automatisering.">
 <meta property="og:locale" content="nl_NL">
 <meta name="twitter:card" content="summary_large_image">
 <style>
@@ -255,9 +255,9 @@ section.tab.active{display:block}
 <div class="wrap">
 
   <div class="hdr">
-    <div class="eyebrow">Leerpad-dashboard</div>
-    <h1>De programmeerkant onder mijn AI-werk</h1>
-    <div class="sub">Vier maanden verdieping naast twee jaar AI- en automationwerk in e-mailmarketing. De structuur komt uit een artikel van @free_ai_guides (7 juli 2026); de bouwopdrachten van Maand 2 t/m 4 zijn eigen werk. Zie het tabblad Eerlijk.</div>
+    <div class="eyebrow">Werkoverzicht</div>
+    <h1>Tools voor e-mailmarketing en CRM-automatisering</h1>
+    <div class="sub">Wat ik bouw, per onderwerp: prompting en structured outputs, retrieval, agents en evals. Elke build draait op publieke, eigen of synthetische data — geen klantdata. Herkomst van de structuur en van de bouwopdrachten: zie het tabblad Eerlijk.</div>
     <div class="meta">
       <span><b>Start</b> 30 juli 2026</span>
       <span><b>Einde</b> 18 november 2026 (16 weken)</span>
@@ -396,8 +396,8 @@ const MODS = [
         ["Vang weigeringen en onverwachte output af","Nodig zodra je dit in een echte pipeline gebruikt, zoals de bon-/factuurparser.",[]],
         ["Ken het verschil tussen échte structured outputs (schema afgedwongen) en losse JSON-mode (niet gegarandeerd)","Dit onderscheid bepaalt of je code blind kan vertrouwen op de vorm van de output.",[]]
       ],
-      build:"BUILD A · Subject line- en preheader-evaluator. Claude API met een JSON-schema als output: score, inbox-weergave per client (Gmail, Outlook, Apple Mail, mobiel, inclusief afkappunt), spamwoord-risico, en merkstem-fit met de merkstem als PARAMETER in plaats van hardgecodeerd, zodat dezelfde evaluator over merken heen werkt. Draait op zelfverzonnen subject lines en publieke nieuwsbrieven: geen klantdata. Dit is letterlijk de structured-outputs-opdracht, maar dan in je eigen vak.",
-      buildPad:"projecten/subject-evaluator/",
+      build:"BUILD A · Subject line- en preheader-checker. Claude API met een JSON-schema als output, gericht op wat objectief te controleren is: weergave per client (Gmail, Outlook, Apple Mail, mobiel) met het afkappunt in tekens en pixels, preheader-lengte en of de eerste regel body de preheader opeet, emoji-rendering en fallback per platform. Merkstem blijft een parameter voor context, geen score. Draait op publieke nieuwsbrieven en zelfverzonnen regels: geen klantdata. Elke uitspraak van deze tool moet in Maand 3 tegen een gelabelde set te houden zijn.",
+      buildPad:"projecten/subject-checker/",
       buildLinks:[["Prompt 2 · Structured Data Extraction","#prompts"]],
       trap:"Bekende faalmodus: het model wikkelt de JSON soms in markdown code fences of zet er een vriendelijke zin voor, waardoor je parser stukloopt. Fix: strip de code fences vóór het parsen, en wees expliciet dat je alléén het JSON-object wilt."
     },
@@ -407,7 +407,7 @@ const MODS = [
         ["Werk een runnable notebook door","Zien hoe tool calling in de praktijk werkt, niet alleen lezen.",[["OpenAI Cookbook (gratis)","https://cookbook.openai.com/"]]],
         ["Schrijf tool-beschrijvingen die het model echt kan gebruiken","De kwaliteit van je tool-beschrijvingen telt zwaarder dan beginners verwachten.",[]]
       ],
-      build:"BUILD B · Briefing naar campagnedocument. Een input-briefing eruit, jouw vaste documentstructuur erin. Tools die de briefing uitlezen en per sectie invullen; ontbrekende velden worden benoemd en niet verzonnen. Dit raakt werk dat je nu handmatig doet, dus de kwaliteitslat is die van je eigen output.",
+      build:"BUILD B · Briefing naar campagnedocument. Een input-briefing eruit, jouw vaste documentstructuur erin. Tools die de briefing uitlezen en per sectie invullen; ontbrekende velden worden benoemd en niet verzonnen. Dit raakt werk dat je nu handmatig doet, dus de kwaliteitslat is die van je eigen output. Deze build blijft intern en verschijnt niet als publieke repo: de documentstructuur is werkgevers-IP.",
       buildPad:"projecten/briefing-naar-campagnedocument/"
     },
     { t:"Conversation state", i:"Pick: messages-documentatie van beide providers. Modellen hebben geen geheugen tussen calls.",
@@ -466,7 +466,7 @@ const MODS = [
         ["Begrijp waarom vergelijkbare tekst vergelijkbare vectoren geeft","Dit is de eigenschap die retrieval mogelijk maakt.",[]],
         ["Meet ruwweg de afstand tussen vectoren","De wiskunde eronder heb je niet nodig.",[]]
       ],
-      oefening:"Warming-up binnen build A, geen apart project: 20 zinnen embedden en de drie meest vergelijkbare teruggeven, zodat de mechaniek klopt voordat de echte ESP-docs erin gaan."
+      oefening:"Warming-up binnen build A, geen apart project: 20 zinnen embedden en de drie meest vergelijkbare teruggeven, zodat de mechaniek klopt voordat de echte nieuwsbrieven erin gaan."
     },
     { t:"Chunking", i:"Pick: LangChain RecursiveCharacterTextSplitter, chunk size ~500, overlap ~50.",
       taken:[
@@ -498,15 +498,16 @@ const MODS = [
       taken:[
         ["Werk met LlamaIndex als search-first framework","Bundelt chunking, opslag en retrieval in één workflow.",[["LlamaIndex · docs (gratis)","https://docs.llamaindex.ai/"]]]
       ],
-      build:"BUILD A · RAG over ESP-documentatie. De Copernica- en Klaviyo-docs in een vector-DB, plus een vraag-antwoordlaag: chunken (~500/overlap ~50), metadata per bron en ESP, filteren op één ESP of allebei, reranking, en antwoorden mét citaat naar de bronpagina. Zonder bron geen antwoord. Publieke bron, direct nuttig, en hij draagt over klanten heen: precies het portabiliteitscriterium.",
-      buildPad:"projecten/esp-docs-rag/"
+      build:"BUILD A · Corpus van Nederlandse B2C-nieuwsbrieven. Eén apart e-mailadres, 40 tot 60 Nederlandse webshops, vanaf week 5 verzamelen. Binnenhalen via IMAP, HTML parsen naar platte tekst plus subject en preheader, embeddings, vector-DB met metadata per merk, datum, type (promo, transactioneel, redactioneel) en sector. Daarna clusteren en doorzoeken. Levert dezelfde skills als een docs-RAG (chunken, embedden, metadata-filtering, retrieval, reranking), maar produceert een bevinding in plaats van een vraagbaak. Publieke bron, eigen data, geen klantdata, geen toestemming nodig.",
+      buildPad:"projecten/nieuwsbrief-corpus/",
+      trap:"De doorlooptijd is hier de val, niet de techniek. Het corpus moet in week 5 gaan verzamelen, anders is er in Maand 3 te weinig volume om iets over te zeggen. Zonder aanmelden geen build."
     },
     { t:"Evals", i:"Pick: DeepEval algemeen, Ragas voor RAG. Elke promptwijziging zonder evals is een gok.",
       taken:[
         ["Bouw een set van vijftig gelabelde inputs met verwachte outputs of een scoringsrubriek","Basis voor objectieve vergelijking tussen prompt- of modelversies.",[["DeepEval · docs (gratis)","https://docs.confident-ai.com/"],["Ragas · docs voor RAG (gratis)","https://docs.ragas.io/"]]],
         ["Draai je systeem daartegen bij elke promptwijziging, modelwissel of retrieval-aanpassing","Zonder dit gok je bij elke wijziging.",[]]
       ],
-      build:"BUILD B · Evals op de evaluator uit Maand 2. Een testset van VIJFTIG gelabelde subject lines (eerst labelen, dan pas draaien), en meten hoe vaak de prompt het per veld goed heeft. Draai ook de vijf promptversies uit Maand 2 tegen dezelfde set, dan weet je welke wint en met hoeveel. Dit is de belangrijkste build van het hele traject en degene die vrijwel niemand in e-mailmarketing doet: het verschil tussen een claim en een getal.",
+      build:"BUILD B · Evals op de checker uit Maand 2. Een testset van VIJFTIG gelabelde subject lines, getrokken uit het corpus uit Build A in plaats van zelf verzonnen (eerst labelen, dan pas draaien), en meten hoe vaak de prompt het per veld goed heeft. Draai ook de vijf promptversies uit Maand 2 tegen dezelfde set, dan weet je welke wint en met hoeveel. Dit is de belangrijkste build van het hele traject en degene die vrijwel niemand in e-mailmarketing doet: het verschil tussen een claim en een getal.",
       buildPad:"projecten/evaluator-evals/"
     },
     { t:"Agents", i:"Pick: Anthropic's 'Building Effective Agents' lezen vóór je één regel agent-code schrijft, daarna intro tot LangGraph. Mentaal model: een agent is een while-loop met een model dat de vertakkingen kiest. Het denken zit in de prompt, de vertakking is het model dat een tool kiest, het doen is jouw code die de tool draait. De rest is plumbing.",
@@ -518,8 +519,8 @@ const MODS = [
         ["Beheer state","Nodig zodra een agent meerdere stappen na elkaar zet.",[]],
         ["Maak kennis met LangGraph","Pas ná de from-scratch oefening: dit laat zien wat het framework verbergt.",[["LangGraph · intro (gratis)","https://langchain-ai.github.io/langgraph/"]]]
       ],
-      build:"BUILD C · Journey-monitor: de generieke versie van het overzicht dat je nu handmatig bijhoudt. Een adapter per ESP met ÉÉN vaste output (journey-ID, naam, status, doelgroep, laatst verzonden, prestatie week-op-week), en daarboven een loop die twee soorten signalen strikt gescheiden houdt. STUK is deterministisch: verzending niet uitgevoerd, journey vuurt niet meer, aantallen op nul, lege feed. MINDER is statistisch: daling boven een drempel, mét een minimumvolume en een voortschrijdend gemiddelde over vier weken, anders meld je ruis. Die twee door elkaar halen is de klassieke fout in alerting. From scratch, zonder framework, op dummy-data: geen klantdata in de repo. Doe hem vóór je LangGraph aanraakt.",
-      buildPad:"projecten/journey-monitor/",
+      build:"BUILD C · Signaalsplitser. Een detector die twee soorten signalen strikt gescheiden houdt, op synthetische tijdreeksen zonder ESP-koppeling. STUK is deterministisch: geen verzending uitgevoerd, aantallen op nul, lege feed. MINDER is statistisch: daling boven een drempel, met minimumvolume en een voortschrijdend gemiddelde over vier weken, anders meld je ruis. Die twee door elkaar halen is de klassieke fout in alerting. From scratch, zonder framework. De ESP-adapters en het journey-overzicht horen hier niet in en worden intern gebouwd.",
+      buildPad:"projecten/signaalsplitser/",
       trap:"Beslisregel: één model-call als de taak in één prompt past · een vaste workflow als de stappen voorspelbaar zijn · een agent alléén als het aantal stappen echt onvoorspelbaar is en het model dynamisch moet beslissen. Agents zijn trager, duurder, minder voorspelbaar en lastiger te debuggen. Zie tabblad Beslisregels."
     }
   ],
@@ -750,10 +751,10 @@ const POSTS = [
     bewijs:"Mechanisme, geen n. De geloofwaardigheid zit in de uitleg en in een publiek te citeren consent-benchmark, niet in een eigen cijfer.",
     toestemming:"" },
   { id:"p2", mod:"m2", week:"Week 8", periode:"17 – 23 sep",
-    titel:"Honderd subject lines door mijn eigen evaluator, en waar hij structureel faalt",
-    kern:"Niet de demo, de faalgevallen. Welke categorieën subject lines de evaluator consequent verkeerd beoordeelt, en wat dat zegt over wat een model wel en niet van een inbox begrijpt.",
-    gate:"NA BUILD A (subject-evaluator) en na honderd regels erdoorheen. Zonder die honderd heb je een mening in plaats van een bevinding.",
-    bewijs:"n=100, zelf verzonnen of uit publieke nieuwsbrieven. Noem het schema, de promptversie, en de faalcategorieën met aantallen.",
+    titel:"Honderd echte subject lines door mijn eigen checker, en waar hij structureel faalt",
+    kern:"Niet de demo, de faalgevallen. Welke categorieën subject lines de checker consequent verkeerd beoordeelt, en wat dat zegt over wat een model wel en niet van een inbox begrijpt.",
+    gate:"NA BUILD A (subject-checker) en na honderd echte regels erdoorheen. Zonder die honderd heb je een mening in plaats van een bevinding.",
+    bewijs:"Echte subject lines uit het nieuwsbrief-corpus, niet zelfverzonnen. Noem het aantal doorgemeten regels, uit hoeveel merken ze komen, het schema, de promptversie, en de faalcategorieën met aantallen. Het corpus loopt vanaf week 5, dus in week 8 is er genoeg; tel wat er dan echt in zit.",
     toestemming:"" },
   { id:"p3", mod:"m3", week:"Week 9", periode:"24 – 30 sep",
     titel:"Er staan journeys live die niemand meer kan benoemen",
@@ -761,34 +762,33 @@ const POSTS = [
     gate:"NA de nulmeting én na het publicatiegesprek. Vraag die toestemming in week 5 aan, niet in week 9, anders schuift de post een maand op.",
     bewijs:"Het aantal live journeys dat niemand kon benoemen, relatief gebracht. Geen omzet, geen merknaam, geen sector.",
     toestemming:"TOESTEMMING NODIG · klant. En let op afleidbaarheid: sector plus aantal merken maakt de klant in Nederland herkenbaar, ook zonder naam. Schrijf het als patroon over meerdere klanten." },
+  { id:"p7", mod:"m3", week:"Week 10–11", periode:"1 – 14 okt",
+    titel:"Wat duizend Nederlandse nieuwsbrieven laten zien als je ze door embeddings haalt",
+    kern:"De clustering: welke groepen er vanzelf uit vallen, welke patronen daarin zitten, en wat dat zegt over hoe Nederlandse webshops hun e-mail inrichten. Beschrijf ook de clusters die je niet had verwacht en de clusters die niets bleken te betekenen.",
+    gate:"NA BUILD A van Maand 3, en pas als het corpus groot genoeg is. Geen post zonder n. Het corpus verzamelt vanaf week 5; is er in week 10 te weinig volume, dan schuift de post op in plaats van dat je de conclusie oprekt.",
+    bewijs:"Het werkelijke aantal mails en het werkelijke aantal merken in het corpus, de clusterverdeling zoals die eruit komt, en de periode waarover verzameld is. Meet alle vier vóór je schrijft; vul hier geen richtgetal in.",
+    toestemming:"" },
   { id:"p4", mod:"m3", week:"Week 12", periode:"15 – 21 okt",
-    titel:"Mijn prompt had het naar eigen zeggen altijd goed. Tegen vijftig gelabelde voorbeelden was het 68 procent",
+    titel:"Mijn prompt had het naar eigen zeggen altijd goed. Tegen vijftig gelabelde voorbeelden bleek dat anders",
     kern:"Het verschil tussen een claim en een getal. Wat een eval-set is, hoe je er een bouwt, en wat er gebeurde toen je je eigen werk ertegen hield.",
     gate:"NA BUILD B (evals). Dit is de sterkste post van het traject en de enige die niemand kan verzinnen, dus wacht tot het getal er echt is.",
-    bewijs:"n=50 gelabelde subject lines, score per veld uit het schema, plus het verschil tussen de vijf promptversies uit Maand 2. Volledig eigen data.",
+    bewijs:"Vijftig gelabelde subject lines, getrokken uit het nieuwsbrief-corpus in plaats van zelf verzonnen: noem hoe je ze getrokken hebt en uit hoeveel merken. Verder de score per veld uit het schema, plus het verschil tussen de vijf promptversies uit Maand 2. Het percentage in de titel vul je pas in als je het gemeten hebt.",
     toestemming:"" },
   { id:"p5", mod:"m4", week:"Week 13–14", periode:"22 okt – 4 nov",
     titel:"\u2018Stuk\u2019 en \u2018minder\u2019 zijn niet hetzelfde signaal",
-    kern:"Waarom campagne-alerting misgaat als je één drempel over beide legt: je mist storingen, of je leert stakeholders je meldingen weg te klikken. Het onderscheid tussen deterministische en statistische detectie, met de drempels erbij.",
-    gate:"NA BUILD C (journey-monitor), zodra hij op dummy-data draait en je je eigen vals-positieven hebt geteld.",
-    bewijs:"Je eigen drempels en het aantal vals-positieven op dummy-data, vóór en ná het splitsen van de detectoren.",
-    toestemming:"TOESTEMMING NODIG · werkgever. Funnelboost bouwt zelf een alerting-tool; dit raakt productoverlap. Los gesprek van het klantgesprek bij p3." },
-  { id:"p6", mod:"m4", week:"Week 16", periode:"12 – 18 nov",
-    titel:"Vier maanden, de cijfers en wat er niet werkte",
-    kern:"De eerlijke terugblik. Geen highlight-reel: de eval-score, wat de evaluator structureel fout bleef doen, wat je hebt weggegooid en wat je zou overdoen.",
-    gate:"NA MAAND 4: twee projecten gedeployed, met README en demo. De post is de afsluiting, niet de aankondiging.",
-    bewijs:"Alle getallen uit p2, p4 en p5 bij elkaar, plus de dingen die je niet hebt gehaald.",
+    kern:"Waarom campagne-alerting misgaat als je één drempel over beide legt: je mist storingen, of je leert stakeholders je meldingen weg te klikken. Het onderscheid tussen deterministische en statistische detectie, met de drempels erbij. Alleen de signaalsplitser op synthetische tijdreeksen; de ESP-kant blijft buiten de post.",
+    gate:"NA BUILD C (signaalsplitser), zodra hij op synthetische data draait en je je eigen vals-positieven hebt geteld.",
+    bewijs:"Je eigen drempels en het aantal vals-positieven op je synthetische reeksen, vóór en ná het splitsen van de detectoren. Beide tellen, niet schatten.",
     toestemming:"" }
 ];
-
-/* Week 4 (20-26 aug) is de actieve week; bijgewerkt op 21 aug 2026. */
+/* Actieve week: week 6 (3-9 sep), Maand 2. Bijgewerkt op 3 sep 2026. */
 const WEEK1 = [
-  "BOUW DE WEATHER CLI. Open-Meteo aanroepen met requests, het JSON-antwoord uitpakken en schoon printen. De venv staat en requests is geïnstalleerd, er is geen college meer dat je eerst moet doen",
-  "Snap wat een HTTP-request fysiek is vóór je de statuscodes leert. Die lijst (200/401/429/500) betekent pas iets als het onderliggende model klopt",
-  "SQLBolt lessen 1 t/m 12: het laatste blok van maand 1 en volledig los van de rest, dus ideaal voor een avond met weinig energie",
-  "Laat de expense tracker zijn tests uit expenseV4 halen in plaats van V3, en vang een ontbrekende expenses.json af",
-  "GitHub Skills: het laatste openstaande week-2-restje",
-  "CS50P 7 (regex) en 8 (OOP) ertussendoor, niet op het kritieke pad"
+  "MELD HET E-MAILADRES AAN BIJ 40 TOT 60 WEBSHOPS voor het nieuwsbrief-corpus. Dit had in week 5 gemoeten en is het enige onderdeel dat je niet kunt inhalen door harder te werken: het corpus groeit alleen in echte tijd",
+  "Schrijf post 1 (het omzetgetal in je journey-dashboard). Die heeft geen build en geen afgeronde maand nodig, dus hij kan vandaag af",
+  "Vraag het publicatiegesprek aan bij de klant voor de post van week 9. Nu aanvragen, niet in week 9, anders schuift de post een maand op",
+  "Maak het prompting-blok af: specificiteit boven beleefdheid, chain-of-thought en few-shot, en gevoel krijgen voor wat kleine woordkeuzes met de output doen",
+  "Structured outputs: definieer een Pydantic-model en geef het schema mee aan de API. Dit is de directe voorbereiding op BUILD A",
+  "Bewaar vanaf nu elke promptversie van de checker apart. Die vijf versies zijn de nulmeting voor de evals in maand 3; achteraf reconstrueren lukt niet"
 ];
 
 const CIJFERS = {
@@ -813,26 +813,47 @@ const TIJDLIJN_ANCHORS = [15,20,25];
 /* ======================= STATE ======================= */
 const LS_KEY = "aiengineer_roadmap_v1";
 
-/* Snapshot van je echte repo op 21 aug 2026 (git log): de CS50P-opdrachten en de build die al als
-   bestand in maand-1-fundament/cs50/ staan. DASHBOARD-TOEVOEGING: vult de eerste keer
-   dat je dit dashboard opent alvast in wat je al hebt gedaan, in plaats van bij 0% te
-   beginnen. Werkt alleen bij het allereerste bezoek; daarna is jouw afvinkgedrag leidend. */
-const SEED_SNAPSHOT_DATUM = "21 augustus 2026";
+/* Snapshot van de repo op 3 sep 2026: Maand 1 is volledig afgerond (alle taken, beide builds
+   en alle vijf de mijlpalen), en de eerste prompting-taak van Maand 2 is gedaan.
+   DASHBOARD-TOEVOEGING: vult de eerste keer dat je dit dashboard opent alvast in wat je al
+   hebt gedaan, in plaats van bij 0% te beginnen. Werkt alleen bij het allereerste bezoek;
+   daarna is jouw afvinkgedrag leidend. Heb je hier al eerder afgevinkt, dan staat je eigen
+   voortgang in localStorage en verandert deze lijst daar niets meer aan — gebruik dan de knop
+   "Voortgang resetten" onderaan om opnieuw vanaf deze snapshot te beginnen. */
+const SEED_SNAPSHOT_DATUM = "3 september 2026";
 const SEED_DONE = [
-  taskKeyRaw("m1",0,0), // CS50P 0 Functions,Variables: einstein, faces, indoor, playback, tip
-  taskKeyRaw("m1",0,1), // CS50P 1 Conditionals: bank, deep, extensions, interpreter, meal
-  taskKeyRaw("m1",0,2), // CS50P 2 Loops: camel, coke, nutrition, plates, twttr
-  taskKeyRaw("m1",0,3), // CS50P 3 Exceptions: fuel, grocery, outdated, taqueria
-  taskKeyRaw("m1",0,4), // CS50P 4 Libraries: adieu, bitcoin, emojize, figlet, game, professor
-  taskKeyRaw("m1",0,5), // CS50P 5 Unit Tests: test_bank, test_fuel, test_plates, test_twttr
-  taskKeyRaw("m1",0,6), // CS50P 6 File I/O: lines, pizza, scourgify, shirt
-  taskKeyRaw("m1",1,0), // Git kernlus: blijkt uit de commit-history van deze repo
-  taskKeyRaw("m1",1,2), // .gitignore + secrets erbuiten: .gitignore + bitcoin.py via COINCAP_API_KEY
-  taskKeyRaw("m1",1,3), // basis-README: README.md in de root en per maandmap
-  taskKeyRaw("m1",2,3), // environment variable gezet: COINCAP_API_KEY voor bitcoin.py
-  taskKeyRaw("m1",0,9), // CS50P 9 venv/pip: .venv + requirements.txt per project
-  taskKeyRaw("m1",1,1), // branching en merging: de dashboard-branch, gemerged op 16 aug
-  "m1|build|0"          // BUILD expense tracker: af op 20 aug, 87 regels + 5 unit tests
+  /* --- Maand 1: volledig af --- */
+  taskKeyRaw("m1",0,0),
+  taskKeyRaw("m1",0,1),
+  taskKeyRaw("m1",0,2),
+  taskKeyRaw("m1",0,3),
+  taskKeyRaw("m1",0,4),
+  taskKeyRaw("m1",0,5),
+  taskKeyRaw("m1",0,6),
+  taskKeyRaw("m1",0,7),
+  taskKeyRaw("m1",0,8),
+  taskKeyRaw("m1",0,9),
+  taskKeyRaw("m1",1,0),
+  taskKeyRaw("m1",1,1),
+  taskKeyRaw("m1",1,2),
+  taskKeyRaw("m1",1,3),
+  taskKeyRaw("m1",2,0),
+  taskKeyRaw("m1",2,1),
+  taskKeyRaw("m1",2,2),
+  taskKeyRaw("m1",2,3),
+  taskKeyRaw("m1",3,0),
+  taskKeyRaw("m1",3,1),
+  taskKeyRaw("m1",3,2),
+  taskKeyRaw("m1",3,3),
+  taskKeyRaw("m1",3,4),
+  taskKeyRaw("m1",4,0),
+  taskKeyRaw("m1",4,1),
+  taskKeyRaw("m1",4,2),
+  "m1|build|0",         // expense tracker: 62 regels, 5 unit tests
+  "m1|build|3",         // weather CLI: V1 t/m V4, met README
+  "m1|ms|0", "m1|ms|1", "m1|ms|2", "m1|ms|3", "m1|ms|4",
+  /* --- Maand 2 --- */
+  taskKeyRaw("m2",0,0)  // system message versus user message
 ];
 function taskKeyRaw(m,b,i){ return m+"|"+b+"|"+i; }
 
@@ -1036,7 +1057,7 @@ function renderOverzicht(){
         <div class="card step-list">${nextHtml}</div>
       </div>
       <div>
-        <div class="sect-title"><h2>Deze week beginnen</h2><span class="n">week van 13–19 aug · Maand 1</span></div>
+        <div class="sect-title"><h2>Deze week beginnen</h2><span class="n">week van 3–9 sep · Maand 2</span></div>
         <div class="card"><ul class="week-list">${weekHtml}</ul></div>
       </div>
     </div>
@@ -1255,7 +1276,7 @@ function renderPosts(){
   el.innerHTML = `
     <div class="sect-title"><h2>Posts</h2><span class="n">${done} van de ${POSTS.length} gepubliceerd · dashboard-toevoeging</span></div>
     <div class="card" style="margin-bottom:16px">
-      <div class="expl">Grondregel 2 is "alles gaat publiek", en dat geldt ook voor wat je schrijft. Elke post hieronder heeft een week, een <b>voorwaarde</b> (na welke build of doelstelling je hem opstelt), en het <b>bewijs</b> dat hij nodig heeft: n en methode, of eerlijk gezegd dat er geen n is. Twee posts vragen eerst toestemming; die staan gemarkeerd. Vraag die toestemming aan in week 5, niet in de week van publicatie.<br><br>Wat je hier niet doet: klantcijfers, merknamen, of details waaruit de klant af te leiden is. Wat je hier wél doet: je eigen faalpercentages publiceren. Die zijn van jou, ze kosten je niets, en ze leveren meer vertrouwen op dan elke succesclaim.</div>
+      <div class="expl">Grondregel 2 is "alles gaat publiek", en dat geldt ook voor wat je schrijft. Elke post hieronder heeft een week, een <b>voorwaarde</b> (na welke build of doelstelling je hem opstelt), en het <b>bewijs</b> dat hij nodig heeft: n en methode, of eerlijk gezegd dat er geen n is. Eén post vraagt eerst toestemming; die staat gemarkeerd. Vraag die aan in week 5, niet in de week van publicatie.<br><br>Wat je hier niet doet: klantcijfers, merknamen, of details waaruit de klant af te leiden is. Wat je hier wél doet: je eigen faalpercentages publiceren. Die zijn van jou, ze kosten je niets, en ze leveren meer vertrouwen op dan elke succesclaim.</div>
     </div>
     ${POSTS.map(postCardHtml).join("")}
   `;
