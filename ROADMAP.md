@@ -139,6 +139,53 @@ ordernummers eruit haalt vóór de API-call en ze er daarna weer in zet. Een dag
 interessante zit in wat de regex mist. **Dit is de goedkoopste van de drie — als maand 3 op
 schema ligt, kan deze er wél bij.**
 
+## Waar ik het dan voor inzet
+
+*Toegevoegd 3 sep 2026, omdat dit het stuk was dat ontbrak: de builds hierboven zijn geen
+producten, en dat kan verwarrend zijn als je er middenin zit.*
+
+Geen van de zes builds is iets waar een CRM-manager voor betaalt. Een DMARC-check doet mxtoolbox
+gratis, een subject line-classifier wil niemand dagelijks draaien, en een corpus van
+nieuwsbrieven is onderzoek. Dat is opzet, geen fout: **deze roadmap traint capaciteiten op
+publiceerbare proxies.** De echte toepassingen in mijn vak hebben allemaal klantdata of
+ESP-toegang nodig en mogen dus niet naar buiten. De builds zijn het bewijs dat ik het kan; het
+product is iets anders.
+
+Wat ik na dit traject kan bouwen, valt in vier vormen: rommelige input betrouwbaar omzetten in
+gestructureerde data mét een gemeten foutmarge · een berg documenten doorzoekbaar maken met
+antwoorden die naar hun bron wijzen · iets in de gaten houden en melden als het verandert · dat
+alles onbewaakt laten draaien tegen voorspelbare kosten.
+
+Vertaald naar wat een klant daar aan heeft, drie dingen. Geen ervan staat in de roadmap hierboven,
+omdat ze alle drie klanttoegang vragen — maar de vaardigheden ervoor zitten er in november wel.
+
+**1. Journey-inventarisatie.** De ESP-API uitlezen en teruggeven: elke live flow, wanneer hij voor
+het laatst verstuurde, hoeveel mensen erin kwamen, wat hij opleverde, en welke flows niemand meer
+kan benoemen. Saai, onsexy, en enorm waardevol, want vrijwel elke partij waar ik binnenkom heeft
+dit niet. Ik heb het handmatig al een keer gedaan; wat ik miste is de code eromheen.
+
+**2. Alerting op kapotte flows.** Een welkomstflow staat drie weken stil en niemand merkt het.
+Direct geldverlies, en precies wat de signaalsplitser doet — alleen zonder ESP-koppeling. Dit is
+de meest gevraagde van de drie.
+
+**3. Rapportage die klopt en uitlegbaar is.** Per journey, per week, met erbij waarom het getal
+niet optelt tot wat de ESP claimt. Dat is de post van week 7, maar dan als draaiend systeem in
+plaats van een verhaal.
+
+Wat deze drie gemeen hebben: **het is geen AI-magie, het is plumbing met oordeelsvermogen erin.**
+Dat is wat ik na vier maanden kan en nu niet.
+
+**Nog steeds buiten bereik:** segmentatie, RFM, churn-scoring, next-best-offer — alles wat gedrag
+op contactniveau nodig heeft, wacht op de datalaag hierboven. Net als alles dat op echt volume
+moet draaien of een serieuze gebruikersinterface heeft.
+
+**Eén open vraag.** De signaalsplitser is één stap verwijderd van een demo die een CRM-manager
+binnen tien seconden begrijpt: een ESP-adapter, gekoppeld aan een eigen gratis testaccount in
+plaats van aan synthetische reeksen. Maar ik heb zelf vastgelegd dat de ESP-kant intern blijft
+omdat Funnelboost zelf alerting bouwt. Dat is een gesprek met mijn werkgever, geen technische
+beslissing: vraag of een publieke demonstrator op een eigen testaccount botst met wat zij bouwen.
+Het antwoord kan prima ja zijn.
+
 ## Verdiepen: begrippen die deze roadmap niet uitlegt
 
 *Bijgehouden sinds 14 aug 2026, laatst bijgewerkt 3 sep 2026, op basis van de vragen die tijdens het bouwen opkwamen. De
