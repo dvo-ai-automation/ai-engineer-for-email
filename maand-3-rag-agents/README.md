@@ -5,7 +5,7 @@
 **Doel:** één solide retrieval-systeem en één solide agent bouwen, begrijpen waarom elk
 onderdeel er zit, en ze kunnen debuggen als ze breken. Dat is de lat.
 
-Volledige uitwerking: [tabblad Roadmap in het dashboard](https://dvo-ai-automation.github.io/ai-engineer-4-months/) · [ROADMAP.md](../ROADMAP.md)
+Volledige uitwerking: [tabblad Roadmap in het dashboard](https://dvo-ai-automation.github.io/ai-engineer-for-email/) · [ROADMAP.md](../ROADMAP.md)
 
 ## Skills
 
@@ -76,7 +76,7 @@ die kant blijft intern.
 
 ## Posts deze maand
 
-Volledige kalender met voorwaarden en bewijs: [tabblad Posts in het dashboard](https://dvo-ai-automation.github.io/ai-engineer-4-months/#posts).
+Volledige kalender met voorwaarden en bewijs: [tabblad Posts in het dashboard](https://dvo-ai-automation.github.io/ai-engineer-for-email/#posts).
 
 **Week 9 (24 – 30 sep) · "Er staan journeys live die niemand meer kan benoemen"**
 Het patroon, niet de klant. **Voorwaarde: de nulmeting vastgelegd én het publicatiegesprek gevoerd**

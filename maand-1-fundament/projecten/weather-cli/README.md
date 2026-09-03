@@ -68,10 +68,10 @@ ze naast elkaar kunt lezen:
 
 | versie | wat erbij kwam | commit |
 |---|---|---|
-| **V1** | 12 regels: één GET, één temperatuur, printen. Coördinaten hardgecodeerd. | [`f3f9fff`](https://github.com/dvo-ai-automation/ai-engineer-4-months/commit/f3f9fff) |
-| **V2** | Drie dagen in plaats van één, timestamp opsplitsen, wegschrijven naar `weer.json`. | [`d823212`](https://github.com/dvo-ai-automation/ai-engineer-4-months/commit/d823212) |
-| **V3** | Plaatsnaam als argument, geocoding-call erbij, `try`/`except` op timeouts, statuscodes. | [`3a7aff9`](https://github.com/dvo-ai-automation/ai-engineer-4-months/commit/3a7aff9) |
-| **V4** | Statuscode-checks die daadwerkelijk werken. Zie hieronder. | [`9ca012e`](https://github.com/dvo-ai-automation/ai-engineer-4-months/commit/9ca012e) |
+| **V1** | 12 regels: één GET, één temperatuur, printen. Coördinaten hardgecodeerd. | [`f3f9fff`](https://github.com/dvo-ai-automation/ai-engineer-for-email/commit/f3f9fff) |
+| **V2** | Drie dagen in plaats van één, timestamp opsplitsen, wegschrijven naar `weer.json`. | [`d823212`](https://github.com/dvo-ai-automation/ai-engineer-for-email/commit/d823212) |
+| **V3** | Plaatsnaam als argument, geocoding-call erbij, `try`/`except` op timeouts, statuscodes. | [`3a7aff9`](https://github.com/dvo-ai-automation/ai-engineer-for-email/commit/3a7aff9) |
+| **V4** | Statuscode-checks die daadwerkelijk werken. Zie hieronder. | [`9ca012e`](https://github.com/dvo-ai-automation/ai-engineer-for-email/commit/9ca012e) |
 
 De les van V4 zat in één teken. V3 had dit:
 

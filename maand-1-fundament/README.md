@@ -7,7 +7,7 @@ kan beheren en niet meer hoeft te googelen op basissyntax. Niet expert. Function
 
 > AI engineering is éérst software engineering. Als deze laag wankelt, wordt de AI-laag nooit betrouwbaar.
 
-Volledige uitwerking: [tabblad Roadmap in het dashboard](https://dvo-ai-automation.github.io/ai-engineer-4-months/) · [ROADMAP.md](../ROADMAP.md)
+Volledige uitwerking: [tabblad Roadmap in het dashboard](https://dvo-ai-automation.github.io/ai-engineer-for-email/) · [ROADMAP.md](../ROADMAP.md)
 
 ## Resources (één pick per skill, niet gaan shoppen)
 
@@ -25,7 +25,7 @@ Laat het uitleggen, jíj typt.
 ## Weekplanning
 
 *Maand 1 is afgerond op 26 augustus 2026. Voor waaróm dit niet gelijkloopt met de
-CS50P-colleges, en hoe diep je per college moet gaan: [CS50P: volgorde en diepte](https://dvo-ai-automation.github.io/ai-engineer-4-months/).*
+CS50P-colleges, en hoe diep je per college moet gaan: [CS50P: volgorde en diepte](https://dvo-ai-automation.github.io/ai-engineer-for-email/).*
 
 - [x] **Week 1 (30 jul – 5 aug)**: setup afronden · CS50P: variabelen, condities, loops, functies
 - [x] **Week 2 (6 – 12 aug)**: CS50P: collections, file handling, JSON · een week lang alles via de terminal

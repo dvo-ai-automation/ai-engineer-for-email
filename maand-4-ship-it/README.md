@@ -5,7 +5,7 @@
 **Doel:** de twee beste builds uit maand 2 en 3 draaibaar maken voor iemand anders.
 Weinig nieuwe concepten, veel doen.
 
-Volledige uitwerking: [tabblad Roadmap in het dashboard](https://dvo-ai-automation.github.io/ai-engineer-4-months/) · [ROADMAP.md](../ROADMAP.md)
+Volledige uitwerking: [tabblad Roadmap in het dashboard](https://dvo-ai-automation.github.io/ai-engineer-for-email/) · [ROADMAP.md](../ROADMAP.md)
 
 ## Resources
 
@@ -33,7 +33,7 @@ Niet alle vijf. Twee, echt af.
 
 ## Posts deze maand
 
-Volledige kalender met voorwaarden en bewijs: [tabblad Posts in het dashboard](https://dvo-ai-automation.github.io/ai-engineer-4-months/#posts).
+Volledige kalender met voorwaarden en bewijs: [tabblad Posts in het dashboard](https://dvo-ai-automation.github.io/ai-engineer-for-email/#posts).
 
 **Week 13–14 (22 okt – 4 nov) · "'Stuk' en 'minder' zijn niet hetzelfde signaal"**
 Waarom alerting misgaat als je één drempel over beide legt. Alleen de signaalsplitser op

@@ -14,7 +14,7 @@ de laag daaronder: zelf kunnen bouwen, repareren en meten wat ik nu samenstel.
 | 3 | 24 sep – 21 okt | RAG en agents |
 | 4 | 22 okt – 18 nov | Shippen |
 
-> ### 📊 [De volledige uitwerking staat in het dashboard →](https://dvo-ai-automation.github.io/ai-engineer-4-months/)
+> ### 📊 [De volledige uitwerking staat in het dashboard →](https://dvo-ai-automation.github.io/ai-engineer-for-email/)
 >
 > Per maand: alle skills met hun gekozen resource, de bouwopdrachten, de valkuilen, de
 > mijlpalen en de actuele voortgang. Dit bestand houdt alleen nog vast wat vaststaat;
@@ -68,7 +68,7 @@ je achterzak.
 ## Wat ik in maand 2 t/m 4 bouw
 
 *Eigen invulling, geen onderdeel van het bronartikel. De volledige postkalender met voorwaarden,
-benodigd bewijs en toestemmingen staat in het [tabblad Posts](https://dvo-ai-automation.github.io/ai-engineer-4-months/#posts). De structuur van de roadmap (de skills per
+benodigd bewijs en toestemmingen staat in het [tabblad Posts](https://dvo-ai-automation.github.io/ai-engineer-for-email/#posts). De structuur van de roadmap (de skills per
 maand, de twee regels, de vier valkuilen) blijft staan; de projecten zijn vervangen door builds
 uit mijn eigen vak, zodat elke build ook zonder deze roadmap nut houdt.*
 
@@ -124,7 +124,7 @@ geen onderdeel van het oorspronkelijke plan.*
 
 De volledige uitgeschreven roadmap (alle skills per maand, de picks, de "hoeveel is genoeg"-
 grenzen per resource, de CS50P-volgorde en de mijlpalen) staat nu in het
-[dashboard](https://dvo-ai-automation.github.io/ai-engineer-4-months/), en de tekstversie
+[dashboard](https://dvo-ai-automation.github.io/ai-engineer-for-email/), en de tekstversie
 blijft opvraagbaar in de git-history:
 
 ```bash

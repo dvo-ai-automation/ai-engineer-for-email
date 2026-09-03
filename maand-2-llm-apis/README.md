@@ -5,7 +5,7 @@
 **Doel:** echte AI-features bouwen met model-API's. Dit is de kern van het vak. Diepte hier
 betaalt zich meer terug dan diepte waar dan ook in het traject.
 
-Volledige uitwerking: [tabblad Roadmap in het dashboard](https://dvo-ai-automation.github.io/ai-engineer-4-months/) · [ROADMAP.md](../ROADMAP.md)
+Volledige uitwerking: [tabblad Roadmap in het dashboard](https://dvo-ai-automation.github.io/ai-engineer-for-email/) · [ROADMAP.md](../ROADMAP.md)
 
 ## Skills
 
@@ -66,7 +66,7 @@ zit nu erin:
 
 ## Posts deze maand
 
-Volledige kalender met voorwaarden en bewijs: [tabblad Posts in het dashboard](https://dvo-ai-automation.github.io/ai-engineer-4-months/#posts).
+Volledige kalender met voorwaarden en bewijs: [tabblad Posts in het dashboard](https://dvo-ai-automation.github.io/ai-engineer-for-email/#posts).
 
 **Week 5 (27 aug – 2 sep) · "Waarom het omzetgetal in je journey-dashboard te laag staat"**
 Consent Mode, thresholding en het attributievenster. **Voorwaarde: geen.** Deze vraagt geen build
