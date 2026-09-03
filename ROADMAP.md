@@ -167,6 +167,60 @@ geen onderdeel van het oorspronkelijke plan.*
 
 ---
 
+## Waar dit eindigt
+
+*Geschreven 3 sep 2026, halverwege maand 2. Bedoeld om terug te lezen in week 11, als het
+bouwen tegenzit en de vraag opkomt waar dit ook alweer voor was. Eerlijk opgeschreven, niet
+motiverend.*
+
+**Wat ik op 18 november kan** — niet begrijp, maar kan, met iets dat draait als bewijs:
+
+- Een model een afgebakende taak laten doen binnen een programma, met een schema eromheen zodat mijn code op de uitkomst kan vertrouwen
+- Meten of dat model het goed doet: een gelabelde set bouwen, er een getal uit halen, twee promptversies tegen elkaar zetten
+- Retrieval over eigen data: embedden, opslaan met metadata, filteren, reranken, antwoorden mét bron
+- Beoordelen wanneer er géén model in moet
+- Iets deployen dat draait zonder mij, met kostenplafonds en tracing
+- Een fout in dat alles opsporen zonder te gokken
+
+Niet indrukwekkend voor een engineer met vijf jaar ervaring. Wel ongebruikelijk voor iemand in
+e-mailmarketing.
+
+**Wat ik dan nog niet kan:** werken op datavolume (geen SQL, geen joins over systemen — zie "Na
+dit traject"), productie-engineering (queues, concurrency, CI), werken in andermans code — alles
+wat ik bouw is greenfield en solo, ik heb nooit een review gehad — en iets draaien dat echt
+gebruikt wordt.
+
+**Het gat:** ik heb dan bewijs dat ik kan bouwen, en geen bewijs van effect. Elk getal dat ik
+publiceer gaat over de markt of over mijn eigen gereedschap, niet over "ik deed X bij een bedrijf
+en toen gebeurde Y". Dat effect is er wel, in mijn dagelijkse werk, maar het mag niet naar buiten.
+Dat is geen fout in het plan; het is de prijs van netjes omgaan met klantdata.
+
+**Wat de posts doen.** Niet: een publiek opbouwen. Vijf posts in drie maanden is geen bereik en
+levert geen inbound op. Wel: wie mij opzoekt vindt binnen anderhalve minuut een samenhangend spoor
+van werk dat niemand anders in dit vakgebied heeft. Ik word verifieerbaar, en ik krijg vijf
+aanleidingen om zelf een gesprek te openen.
+
+**Wat het oplevert, en niet meer dan dit:**
+
+1. **Ik kan afmaken wat ik begin.** Nu stel ik samen, straks bouw ik. Dat verandert welke opdrachten ik aandurf.
+2. **Ik meet.** Iedereen in e-mailmarketing laat inmiddels AI teksten schrijven; vrijwel niemand kan zeggen hoe vaak dat ding ernaast zit.
+3. **Ik heb iets dat van mij is.** Het corpus vooral: een dataset over de Nederlandse markt die niemand anders heeft en die vanzelf blijft groeien. **Zet hem niet stil op 18 november.**
+
+Wat het níét oplevert: een andere functietitel, een publiek, of autoriteit. Die komen van
+herhaling ná november.
+
+**Over dat ik de helft nog niet snap.** Dat is de volgorde, niet een probleem. Embeddings snap je
+niet vóór je er iets mee bouwt. In november zal een deel nog steeds niet diep zitten, en dat hoeft
+ook niet — de doelstelling bovenaan dit bestand zegt *repareren*, niet doorgronden. Die lat haal
+ik als ik dit afmaak.
+
+**De twee dingen die het meest zouden toevoegen, en die nu nergens gepland staan:** één echte
+gebruiker van de voordeur die ik zelf niet ben, en één keer dat mijn eigen meting een beslissing
+op mijn werk heeft veranderd — dat laatste mag ik beschrijven als mechanisme, zonder klant en
+zonder cijfer.
+
+---
+
 ## Waar de rest gebleven is
 
 De volledige uitgeschreven roadmap (alle skills per maand, de picks, de "hoeveel is genoeg"-
