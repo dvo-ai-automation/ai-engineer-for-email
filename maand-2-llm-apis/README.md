@@ -11,6 +11,21 @@ Volledige uitwerking: [tabblad Roadmap in het dashboard](https://dvo-ai-automati
 
 Prompting · structured outputs · tool calling · streaming.
 
+**In welke week wat.** De skills staan in het dashboard op uitvoeringsvolgorde, niet op
+leerboekvolgorde, met per blok een weeklabel:
+
+| Week | Blok | Build |
+|---|---|---|
+| 6 | Deterministisch of model | BUILD C, deterministische helft |
+| 7 | Structured outputs · Prompting ronde 1 · Kosten en tokens | BUILD C, de oordeelstap |
+| 8 | Prompting ronde 2 · Failure handling · Prompt injection | BUILD A, de checker |
+
+**Tool calling en conversation state halen deze maand niet**, en dat is een keuze en geen
+vergissing: er zijn nog drie weken en er staat nog geen regel code van deze maand. Ze zijn niet
+geschrapt maar verplaatst — tool calling landt in maand 3 op de vraag-antwoordlaag van het
+corpus, conversation state in maand 4 op de voordeur. Streaming leer je hier en pas je daar toe.
+Dat betekent dat BUILD B (briefing naar campagnedocument) deze maand niet gebouwd wordt.
+
 ## Resources
 
 - Prompting: `anthropics/prompt-eng-interactive-tutorial` (GitHub), daarna de officiële prompt-docs van Anthropic en OpenAI
