@@ -41,10 +41,6 @@ synthetische tijdreeksen; de ESP-kant blijft buiten de post. **Voorwaarde: build
 synthetische data en je hebt je eigen vals-positieven geteld**, vóór en ná het splitsen van de
 detectoren.
 
-*AANNAME, ZELF VERIFIËREN: de toestemming van Funnelboost is hier weggehaald omdat de
-signaalsplitser geen ESP-adapter meer bevat en dus niet overlapt met de alerting-tool die zij
-zelf bouwen. Dat is mijn eigen inschatting, niet iets wat is voorgelegd.*
-
 ## Richting kiezen (één)
 
 - [ ] **AI product engineer** — direct waarde leveren bij een klant

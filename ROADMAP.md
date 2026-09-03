@@ -94,7 +94,7 @@ uit mijn eigen vak, zodat elke build ook zonder deze roadmap nut houdt.*
 
 ## Verdiepen: begrippen die deze roadmap niet uitlegt
 
-*Bijgehouden sinds 14 aug 2026, op basis van de vragen die tijdens het bouwen opkwamen. De
+*Bijgehouden sinds 14 aug 2026, laatst bijgewerkt 3 sep 2026, op basis van de vragen die tijdens het bouwen opkwamen. De
 roadmap noemt deze termen als bullet point alsof je ze al kent; voor een beginner zijn het
 gaten. Deze lijst staat bewust hier en niet in het dashboard: het zijn jouw open vragen,
 geen onderdeel van het oorspronkelijke plan.*
@@ -108,14 +108,15 @@ geen onderdeel van het oorspronkelijke plan.*
 - [x] **Branching en merging**: geleerd 16 aug op deze repo: het dashboard en deze herschrijving
       zijn op een aparte branch gebouwd en pas daarna samengevoegd. Een merge-conflict veroorzaken
       en oplossen staat nog open; dat komt vanzelf.
-- [ ] **Virtual environment (venv)**: zelfde familie als de env var: iets buiten je code dat
-      bepaalt hoe hij draait. Zonder dit installeer je in maand 2 geen enkele SDK.
-      **Eerstvolgende om op te pakken.**
-- [ ] **`async`/`await`**: de roadmap zegt "weet dat het bestaat" en legt niet uit wát er dan
-      bestaat. Eén alinea is genoeg; hoeft niet vóór maand 2 af.
-- [ ] **Wat een HTTP-request/response fysiek ís**: de roadmap springt meteen naar statuscodes
-      (200/401/429/500). Die lijst is pas betekenisvol als het onderliggende model klopt.
-      Hoort bij week 4.
+- [x] **Virtual environment (venv)**: zelfde familie als de env var: iets buiten je code dat
+      bepaalt hoe hij draait. In de praktijk gebruikt vanaf week 3; per project een eigen
+      `.venv` met een `requirements.txt` ernaast. Bij het hernoemen van een projectmap breekt
+      hij, want in `.venv/bin/` staan absolute paden: weggooien en opnieuw aanmaken.
+- [x] **`async`/`await`**: afgevinkt als onderdeel van maand 1 (blok API's/HTTP, "weet dat het
+      bestaat"). Dieper dan één alinea is het niet gegaan en dat hoeft ook niet.
+- [x] **Wat een HTTP-request/response fysiek ís**: gedaan in week 4, vóór de statuscodes
+      (200/401/429/500). Toepassing: de weather CLI, die de Open-Meteo API aanroept en op
+      statuscodes controleert.
 
 ---
 

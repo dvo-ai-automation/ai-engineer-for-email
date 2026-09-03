@@ -779,17 +779,16 @@ const POSTS = [
     kern:"Waarom campagne-alerting misgaat als je één drempel over beide legt: je mist storingen, of je leert stakeholders je meldingen weg te klikken. Het onderscheid tussen deterministische en statistische detectie, met de drempels erbij. Alleen de signaalsplitser op synthetische tijdreeksen; de ESP-kant blijft buiten de post.",
     gate:"NA BUILD C (signaalsplitser), zodra hij op synthetische data draait en je je eigen vals-positieven hebt geteld.",
     bewijs:"Je eigen drempels en het aantal vals-positieven op je synthetische reeksen, vóór en ná het splitsen van de detectoren. Beide tellen, niet schatten.",
-    aanname:"AANNAME, ZELF VERIFIËREN. De toestemming van de werkgever is hier weggehaald omdat de signaalsplitser geen ESP-adapter meer bevat en dus niet overlapt met de alerting-tool die Funnelboost zelf bouwt. Dat is mijn eigen inschatting, niet iets wat is voorgelegd. Klopt hij niet, of gaat de post alsnog over de adapterkant, dan is de toestemming er wél weer.",
     toestemming:"" }
 ];
-/* Week 4 (20-26 aug) is de actieve week; bijgewerkt op 21 aug 2026. */
+/* Actieve week: week 6 (3-9 sep), Maand 2. Bijgewerkt op 3 sep 2026. */
 const WEEK1 = [
-  "BOUW DE WEATHER CLI. Open-Meteo aanroepen met requests, het JSON-antwoord uitpakken en schoon printen. De venv staat en requests is geïnstalleerd, er is geen college meer dat je eerst moet doen",
-  "Snap wat een HTTP-request fysiek is vóór je de statuscodes leert. Die lijst (200/401/429/500) betekent pas iets als het onderliggende model klopt",
-  "SQLBolt lessen 1 t/m 12: het laatste blok van maand 1 en volledig los van de rest, dus ideaal voor een avond met weinig energie",
-  "Laat de expense tracker zijn tests uit expenseV4 halen in plaats van V3, en vang een ontbrekende expenses.json af",
-  "GitHub Skills: het laatste openstaande week-2-restje",
-  "CS50P 7 (regex) en 8 (OOP) ertussendoor, niet op het kritieke pad"
+  "MELD HET E-MAILADRES AAN BIJ 40 TOT 60 WEBSHOPS voor het nieuwsbrief-corpus. Dit had in week 5 gemoeten en is het enige onderdeel dat je niet kunt inhalen door harder te werken: het corpus groeit alleen in echte tijd",
+  "Schrijf post 1 (het omzetgetal in je journey-dashboard). Die heeft geen build en geen afgeronde maand nodig, dus hij kan vandaag af",
+  "Vraag het publicatiegesprek aan bij de klant voor de post van week 9. Nu aanvragen, niet in week 9, anders schuift de post een maand op",
+  "Maak het prompting-blok af: specificiteit boven beleefdheid, chain-of-thought en few-shot, en gevoel krijgen voor wat kleine woordkeuzes met de output doen",
+  "Structured outputs: definieer een Pydantic-model en geef het schema mee aan de API. Dit is de directe voorbereiding op BUILD A",
+  "Bewaar vanaf nu elke promptversie van de checker apart. Die vijf versies zijn de nulmeting voor de evals in maand 3; achteraf reconstrueren lukt niet"
 ];
 
 const CIJFERS = {
@@ -814,26 +813,47 @@ const TIJDLIJN_ANCHORS = [15,20,25];
 /* ======================= STATE ======================= */
 const LS_KEY = "aiengineer_roadmap_v1";
 
-/* Snapshot van je echte repo op 21 aug 2026 (git log): de CS50P-opdrachten en de build die al als
-   bestand in maand-1-fundament/cs50/ staan. DASHBOARD-TOEVOEGING: vult de eerste keer
-   dat je dit dashboard opent alvast in wat je al hebt gedaan, in plaats van bij 0% te
-   beginnen. Werkt alleen bij het allereerste bezoek; daarna is jouw afvinkgedrag leidend. */
-const SEED_SNAPSHOT_DATUM = "21 augustus 2026";
+/* Snapshot van de repo op 3 sep 2026: Maand 1 is volledig afgerond (alle taken, beide builds
+   en alle vijf de mijlpalen), en de eerste prompting-taak van Maand 2 is gedaan.
+   DASHBOARD-TOEVOEGING: vult de eerste keer dat je dit dashboard opent alvast in wat je al
+   hebt gedaan, in plaats van bij 0% te beginnen. Werkt alleen bij het allereerste bezoek;
+   daarna is jouw afvinkgedrag leidend. Heb je hier al eerder afgevinkt, dan staat je eigen
+   voortgang in localStorage en verandert deze lijst daar niets meer aan — gebruik dan de knop
+   "Voortgang resetten" onderaan om opnieuw vanaf deze snapshot te beginnen. */
+const SEED_SNAPSHOT_DATUM = "3 september 2026";
 const SEED_DONE = [
-  taskKeyRaw("m1",0,0), // CS50P 0 Functions,Variables: einstein, faces, indoor, playback, tip
-  taskKeyRaw("m1",0,1), // CS50P 1 Conditionals: bank, deep, extensions, interpreter, meal
-  taskKeyRaw("m1",0,2), // CS50P 2 Loops: camel, coke, nutrition, plates, twttr
-  taskKeyRaw("m1",0,3), // CS50P 3 Exceptions: fuel, grocery, outdated, taqueria
-  taskKeyRaw("m1",0,4), // CS50P 4 Libraries: adieu, bitcoin, emojize, figlet, game, professor
-  taskKeyRaw("m1",0,5), // CS50P 5 Unit Tests: test_bank, test_fuel, test_plates, test_twttr
-  taskKeyRaw("m1",0,6), // CS50P 6 File I/O: lines, pizza, scourgify, shirt
-  taskKeyRaw("m1",1,0), // Git kernlus: blijkt uit de commit-history van deze repo
-  taskKeyRaw("m1",1,2), // .gitignore + secrets erbuiten: .gitignore + bitcoin.py via COINCAP_API_KEY
-  taskKeyRaw("m1",1,3), // basis-README: README.md in de root en per maandmap
-  taskKeyRaw("m1",2,3), // environment variable gezet: COINCAP_API_KEY voor bitcoin.py
-  taskKeyRaw("m1",0,9), // CS50P 9 venv/pip: .venv + requirements.txt per project
-  taskKeyRaw("m1",1,1), // branching en merging: de dashboard-branch, gemerged op 16 aug
-  "m1|build|0"          // BUILD expense tracker: af op 20 aug, 87 regels + 5 unit tests
+  /* --- Maand 1: volledig af --- */
+  taskKeyRaw("m1",0,0),
+  taskKeyRaw("m1",0,1),
+  taskKeyRaw("m1",0,2),
+  taskKeyRaw("m1",0,3),
+  taskKeyRaw("m1",0,4),
+  taskKeyRaw("m1",0,5),
+  taskKeyRaw("m1",0,6),
+  taskKeyRaw("m1",0,7),
+  taskKeyRaw("m1",0,8),
+  taskKeyRaw("m1",0,9),
+  taskKeyRaw("m1",1,0),
+  taskKeyRaw("m1",1,1),
+  taskKeyRaw("m1",1,2),
+  taskKeyRaw("m1",1,3),
+  taskKeyRaw("m1",2,0),
+  taskKeyRaw("m1",2,1),
+  taskKeyRaw("m1",2,2),
+  taskKeyRaw("m1",2,3),
+  taskKeyRaw("m1",3,0),
+  taskKeyRaw("m1",3,1),
+  taskKeyRaw("m1",3,2),
+  taskKeyRaw("m1",3,3),
+  taskKeyRaw("m1",3,4),
+  taskKeyRaw("m1",4,0),
+  taskKeyRaw("m1",4,1),
+  taskKeyRaw("m1",4,2),
+  "m1|build|0",         // expense tracker: 62 regels, 5 unit tests
+  "m1|build|3",         // weather CLI: V1 t/m V4, met README
+  "m1|ms|0", "m1|ms|1", "m1|ms|2", "m1|ms|3", "m1|ms|4",
+  /* --- Maand 2 --- */
+  taskKeyRaw("m2",0,0)  // system message versus user message
 ];
 function taskKeyRaw(m,b,i){ return m+"|"+b+"|"+i; }
 
@@ -1037,7 +1057,7 @@ function renderOverzicht(){
         <div class="card step-list">${nextHtml}</div>
       </div>
       <div>
-        <div class="sect-title"><h2>Deze week beginnen</h2><span class="n">week van 13–19 aug · Maand 1</span></div>
+        <div class="sect-title"><h2>Deze week beginnen</h2><span class="n">week van 3–9 sep · Maand 2</span></div>
         <div class="card"><ul class="week-list">${weekHtml}</ul></div>
       </div>
     </div>
@@ -1241,7 +1261,6 @@ function postCardHtml(p){
       <dl class="pmeta">
         <dt>Voorwaarde</dt><dd>${esc(p.gate)}</dd>
         <dt>Bewijs</dt><dd>${esc(p.bewijs)}</dd>
-        ${p.aanname ? `<dt>Aanname</dt><dd class="warn">${esc(p.aanname)}</dd>` : ""}
         ${p.toestemming ? `<dt>Let op</dt><dd class="warn">${esc(p.toestemming)}</dd>` : ""}
       </dl>
       <div class="pstatus">

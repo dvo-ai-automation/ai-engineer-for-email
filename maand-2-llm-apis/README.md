@@ -76,10 +76,6 @@ en geen afgeronde maand, dus hij kan als eerste. Bewijs is het mechanisme, niet 
 Vraag hem nu, niet in de week van publicatie. Ook deze week starten: het [nieuwsbrief-corpus](../maand-3-rag-agents/projecten/nieuwsbrief-corpus/)
 — aanmelden bij 40 tot 60 webshops, anders is er in maand 3 te weinig volume.*
 
-*AANNAME, ZELF VERIFIËREN: de toestemming van Funnelboost voor de alerting-post is eruit gehaald
-omdat de signaalsplitser geen ESP-adapter meer bevat en dus geen productoverlap heeft. Dat is
-mijn eigen inschatting, geen antwoord van de werkgever.*
-
 **Week 8 (17 – 23 sep) · "Honderd subject lines, en waar mijn checker structureel faalt"**
 Niet de demo, de faalgevallen. **Voorwaarde: build A af én honderd echte subject lines uit het
 corpus erdoorheen.** Zonder die honderd heb je een mening in plaats van een bevinding. Bewijs:
