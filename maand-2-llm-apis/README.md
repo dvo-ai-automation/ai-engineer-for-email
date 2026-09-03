@@ -26,17 +26,21 @@ Prompting · structured outputs · tool calling · streaming.
 
 ## Builds
 
-**A · Subject line- en preheader-evaluator** — [`projecten/subject-evaluator/`](projecten/)
+**A · Subject line- en preheader-checker** — [`projecten/subject-evaluator/`](projecten/)
 
 De structured-outputs-opdracht, maar dan in mijn eigen vak. Claude API met een JSON-schema als
-output. Per subject line + preheader terug:
+output, gericht op wat objectief te controleren is. Per subject line + preheader terug:
 
-- [ ] `score` — één getal, met de motivering apart in het schema
-- [ ] `inbox_weergave` — hoe de regel eruitkomt per client (Gmail, Outlook, Apple Mail, mobiel), inclusief afkappunt
-- [ ] `spamwoord_risico` — welke woorden, hoe zwaar
-- [ ] `merkstem_fit` — met de merkstem als **parameter**, niet hardgecodeerd, zodat dezelfde evaluator over merken heen werkt
+- [ ] `weergave` — hoe de regel eruitkomt per client (Gmail, Outlook, Apple Mail, mobiel), met het afkappunt in tekens én pixels
+- [ ] `preheader` — lengte, en of de eerste regel body de preheader opeet
+- [ ] `emoji` — rendering en fallback per platform
+- [ ] `merkstem` — blijft een **parameter** voor context, geen score. Een cijfer op stijl is niet toetsbaar, dus er kan later geen eval tegenaan
 
-Draait op subject lines die ik zelf verzin of uit publieke nieuwsbrieven haal. **Geen klantdata.**
+Geen spamwoordscore: spamwoordenlijsten zijn achterhaald, moderne filters kijken naar reputatie,
+engagement en authenticatie. Elke uitspraak van deze tool moet in maand 3 tegen een gelabelde set
+te houden zijn.
+
+Draait op publieke nieuwsbrieven en regels die ik zelf verzin. **Geen klantdata.**
 
 **B · Briefing naar campagnedocument** — [`projecten/briefing-naar-campagnedocument/`](projecten/)
 
@@ -47,13 +51,16 @@ werk dat ik nu handmatig doe, dus de kwaliteitslat is die van mijn eigen output.
 - [ ] Ontbrekende velden worden benoemd, niet verzonnen
 - [ ] Het model besluit; mijn code voert uit
 
+**Blijft intern.** Deze build verschijnt niet als publieke repo: de documentstructuur is
+werkgevers-IP.
+
 ## De skills zonder eigen project
 
 Deze twee builds dragen álle skills van deze maand. Wat vroeger een los oefenprojectje was,
 zit nu erin:
 
-- **Prompting** → vijf promptversies van de evaluator, alle vijf gedraaid, outputs naast elkaar. Bewaren: dit is de nulmeting voor de evals in maand 3.
-- **Streaming** → de evaluator streamt zijn oordeel terwijl het binnenkomt.
+- **Prompting** → vijf promptversies van de checker, alle vijf gedraaid, outputs naast elkaar. Bewaren: dit is de nulmeting voor de evals in maand 3.
+- **Streaming** → de checker streamt zijn oordeel terwijl het binnenkomt.
 - **Conversation state** → de briefing-tool vraagt door bij een onvolledige briefing en houdt de history zelf bij.
 - **Failure handling** → Tenacity op beide, en een onverwacht antwoord sloopt nooit de run.
 
@@ -65,13 +72,19 @@ Volledige kalender met voorwaarden en bewijs: [tabblad Posts in het dashboard](h
 Consent Mode, thresholding en het attributievenster. **Voorwaarde: geen.** Deze vraagt geen build
 en geen afgeronde maand, dus hij kan als eerste. Bewijs is het mechanisme, niet een n.
 
-*Regel deze week ook de twee toestemmingen aan die je later nodig hebt: de klant (voor de post in
-week 9) en Funnelboost (voor de post in week 13). Vraag ze nu, niet in de week van publicatie.*
+*Regel deze week de toestemming aan die je later nodig hebt: de klant, voor de post in week 9.
+Vraag hem nu, niet in de week van publicatie. Ook deze week starten: het [nieuwsbrief-corpus](../maand-3-rag-agents/projecten/nieuwsbrief-corpus/)
+— aanmelden bij 40 tot 60 webshops, anders is er in maand 3 te weinig volume.*
 
-**Week 8 (17 – 23 sep) · "Honderd subject lines, en waar mijn evaluator structureel faalt"**
-Niet de demo, de faalgevallen. **Voorwaarde: build A af én honderd regels erdoorheen.** Zonder die
-honderd heb je een mening in plaats van een bevinding. Bewijs: n=100, het schema, de promptversie
-en de faalcategorieën met aantallen.
+*AANNAME, ZELF VERIFIËREN: de toestemming van Funnelboost voor de alerting-post is eruit gehaald
+omdat de signaalsplitser geen ESP-adapter meer bevat en dus geen productoverlap heeft. Dat is
+mijn eigen inschatting, geen antwoord van de werkgever.*
+
+**Week 8 (17 – 23 sep) · "Honderd subject lines, en waar mijn checker structureel faalt"**
+Niet de demo, de faalgevallen. **Voorwaarde: build A af én honderd echte subject lines uit het
+corpus erdoorheen.** Zonder die honderd heb je een mening in plaats van een bevinding. Bewijs:
+het aantal doorgemeten regels en uit hoeveel merken ze komen, het schema, de promptversie en de
+faalcategorieën met aantallen.
 
 ## Milestone
 

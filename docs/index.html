@@ -396,7 +396,7 @@ const MODS = [
         ["Vang weigeringen en onverwachte output af","Nodig zodra je dit in een echte pipeline gebruikt, zoals de bon-/factuurparser.",[]],
         ["Ken het verschil tussen échte structured outputs (schema afgedwongen) en losse JSON-mode (niet gegarandeerd)","Dit onderscheid bepaalt of je code blind kan vertrouwen op de vorm van de output.",[]]
       ],
-      build:"BUILD A · Subject line- en preheader-evaluator. Claude API met een JSON-schema als output: score, inbox-weergave per client (Gmail, Outlook, Apple Mail, mobiel, inclusief afkappunt), spamwoord-risico, en merkstem-fit met de merkstem als PARAMETER in plaats van hardgecodeerd, zodat dezelfde evaluator over merken heen werkt. Draait op zelfverzonnen subject lines en publieke nieuwsbrieven: geen klantdata. Dit is letterlijk de structured-outputs-opdracht, maar dan in je eigen vak.",
+      build:"BUILD A · Subject line- en preheader-checker. Claude API met een JSON-schema als output, gericht op wat objectief te controleren is: weergave per client (Gmail, Outlook, Apple Mail, mobiel) met het afkappunt in tekens en pixels, preheader-lengte en of de eerste regel body de preheader opeet, emoji-rendering en fallback per platform. Merkstem blijft een parameter voor context, geen score. Draait op publieke nieuwsbrieven en zelfverzonnen regels: geen klantdata. Elke uitspraak van deze tool moet in Maand 3 tegen een gelabelde set te houden zijn.",
       buildPad:"projecten/subject-evaluator/",
       buildLinks:[["Prompt 2 · Structured Data Extraction","#prompts"]],
       trap:"Bekende faalmodus: het model wikkelt de JSON soms in markdown code fences of zet er een vriendelijke zin voor, waardoor je parser stukloopt. Fix: strip de code fences vóór het parsen, en wees expliciet dat je alléén het JSON-object wilt."
@@ -407,7 +407,7 @@ const MODS = [
         ["Werk een runnable notebook door","Zien hoe tool calling in de praktijk werkt, niet alleen lezen.",[["OpenAI Cookbook (gratis)","https://cookbook.openai.com/"]]],
         ["Schrijf tool-beschrijvingen die het model echt kan gebruiken","De kwaliteit van je tool-beschrijvingen telt zwaarder dan beginners verwachten.",[]]
       ],
-      build:"BUILD B · Briefing naar campagnedocument. Een input-briefing eruit, jouw vaste documentstructuur erin. Tools die de briefing uitlezen en per sectie invullen; ontbrekende velden worden benoemd en niet verzonnen. Dit raakt werk dat je nu handmatig doet, dus de kwaliteitslat is die van je eigen output.",
+      build:"BUILD B · Briefing naar campagnedocument. Een input-briefing eruit, jouw vaste documentstructuur erin. Tools die de briefing uitlezen en per sectie invullen; ontbrekende velden worden benoemd en niet verzonnen. Dit raakt werk dat je nu handmatig doet, dus de kwaliteitslat is die van je eigen output. Deze build blijft intern en verschijnt niet als publieke repo: de documentstructuur is werkgevers-IP.",
       buildPad:"projecten/briefing-naar-campagnedocument/"
     },
     { t:"Conversation state", i:"Pick: messages-documentatie van beide providers. Modellen hebben geen geheugen tussen calls.",
@@ -466,7 +466,7 @@ const MODS = [
         ["Begrijp waarom vergelijkbare tekst vergelijkbare vectoren geeft","Dit is de eigenschap die retrieval mogelijk maakt.",[]],
         ["Meet ruwweg de afstand tussen vectoren","De wiskunde eronder heb je niet nodig.",[]]
       ],
-      oefening:"Warming-up binnen build A, geen apart project: 20 zinnen embedden en de drie meest vergelijkbare teruggeven, zodat de mechaniek klopt voordat de echte ESP-docs erin gaan."
+      oefening:"Warming-up binnen build A, geen apart project: 20 zinnen embedden en de drie meest vergelijkbare teruggeven, zodat de mechaniek klopt voordat de echte nieuwsbrieven erin gaan."
     },
     { t:"Chunking", i:"Pick: LangChain RecursiveCharacterTextSplitter, chunk size ~500, overlap ~50.",
       taken:[
@@ -498,15 +498,16 @@ const MODS = [
       taken:[
         ["Werk met LlamaIndex als search-first framework","Bundelt chunking, opslag en retrieval in één workflow.",[["LlamaIndex · docs (gratis)","https://docs.llamaindex.ai/"]]]
       ],
-      build:"BUILD A · RAG over ESP-documentatie. De Copernica- en Klaviyo-docs in een vector-DB, plus een vraag-antwoordlaag: chunken (~500/overlap ~50), metadata per bron en ESP, filteren op één ESP of allebei, reranking, en antwoorden mét citaat naar de bronpagina. Zonder bron geen antwoord. Publieke bron, direct nuttig, en hij draagt over klanten heen: precies het portabiliteitscriterium.",
-      buildPad:"projecten/esp-docs-rag/"
+      build:"BUILD A · Corpus van Nederlandse B2C-nieuwsbrieven. Eén apart e-mailadres, 40 tot 60 Nederlandse webshops, vanaf week 5 verzamelen. Binnenhalen via IMAP, HTML parsen naar platte tekst plus subject en preheader, embeddings, vector-DB met metadata per merk, datum, type (promo, transactioneel, redactioneel) en sector. Daarna clusteren en doorzoeken. Levert dezelfde skills als een docs-RAG (chunken, embedden, metadata-filtering, retrieval, reranking), maar produceert een bevinding in plaats van een vraagbaak. Publieke bron, eigen data, geen klantdata, geen toestemming nodig.",
+      buildPad:"projecten/nieuwsbrief-corpus/",
+      trap:"De doorlooptijd is hier de val, niet de techniek. Het corpus moet in week 5 gaan verzamelen, anders is er in Maand 3 te weinig volume om iets over te zeggen. Zonder aanmelden geen build."
     },
     { t:"Evals", i:"Pick: DeepEval algemeen, Ragas voor RAG. Elke promptwijziging zonder evals is een gok.",
       taken:[
         ["Bouw een set van vijftig gelabelde inputs met verwachte outputs of een scoringsrubriek","Basis voor objectieve vergelijking tussen prompt- of modelversies.",[["DeepEval · docs (gratis)","https://docs.confident-ai.com/"],["Ragas · docs voor RAG (gratis)","https://docs.ragas.io/"]]],
         ["Draai je systeem daartegen bij elke promptwijziging, modelwissel of retrieval-aanpassing","Zonder dit gok je bij elke wijziging.",[]]
       ],
-      build:"BUILD B · Evals op de evaluator uit Maand 2. Een testset van VIJFTIG gelabelde subject lines (eerst labelen, dan pas draaien), en meten hoe vaak de prompt het per veld goed heeft. Draai ook de vijf promptversies uit Maand 2 tegen dezelfde set, dan weet je welke wint en met hoeveel. Dit is de belangrijkste build van het hele traject en degene die vrijwel niemand in e-mailmarketing doet: het verschil tussen een claim en een getal.",
+      build:"BUILD B · Evals op de checker uit Maand 2. Een testset van VIJFTIG gelabelde subject lines, getrokken uit het corpus uit Build A in plaats van zelf verzonnen (eerst labelen, dan pas draaien), en meten hoe vaak de prompt het per veld goed heeft. Draai ook de vijf promptversies uit Maand 2 tegen dezelfde set, dan weet je welke wint en met hoeveel. Dit is de belangrijkste build van het hele traject en degene die vrijwel niemand in e-mailmarketing doet: het verschil tussen een claim en een getal.",
       buildPad:"projecten/evaluator-evals/"
     },
     { t:"Agents", i:"Pick: Anthropic's 'Building Effective Agents' lezen vóór je één regel agent-code schrijft, daarna intro tot LangGraph. Mentaal model: een agent is een while-loop met een model dat de vertakkingen kiest. Het denken zit in de prompt, de vertakking is het model dat een tool kiest, het doen is jouw code die de tool draait. De rest is plumbing.",
@@ -518,8 +519,8 @@ const MODS = [
         ["Beheer state","Nodig zodra een agent meerdere stappen na elkaar zet.",[]],
         ["Maak kennis met LangGraph","Pas ná de from-scratch oefening: dit laat zien wat het framework verbergt.",[["LangGraph · intro (gratis)","https://langchain-ai.github.io/langgraph/"]]]
       ],
-      build:"BUILD C · Journey-monitor: de generieke versie van het overzicht dat je nu handmatig bijhoudt. Een adapter per ESP met ÉÉN vaste output (journey-ID, naam, status, doelgroep, laatst verzonden, prestatie week-op-week), en daarboven een loop die twee soorten signalen strikt gescheiden houdt. STUK is deterministisch: verzending niet uitgevoerd, journey vuurt niet meer, aantallen op nul, lege feed. MINDER is statistisch: daling boven een drempel, mét een minimumvolume en een voortschrijdend gemiddelde over vier weken, anders meld je ruis. Die twee door elkaar halen is de klassieke fout in alerting. From scratch, zonder framework, op dummy-data: geen klantdata in de repo. Doe hem vóór je LangGraph aanraakt.",
-      buildPad:"projecten/journey-monitor/",
+      build:"BUILD C · Signaalsplitser. Een detector die twee soorten signalen strikt gescheiden houdt, op synthetische tijdreeksen zonder ESP-koppeling. STUK is deterministisch: geen verzending uitgevoerd, aantallen op nul, lege feed. MINDER is statistisch: daling boven een drempel, met minimumvolume en een voortschrijdend gemiddelde over vier weken, anders meld je ruis. Die twee door elkaar halen is de klassieke fout in alerting. From scratch, zonder framework. De ESP-adapters en het journey-overzicht horen hier niet in en worden intern gebouwd.",
+      buildPad:"projecten/signaalsplitser/",
       trap:"Beslisregel: één model-call als de taak in één prompt past · een vaste workflow als de stappen voorspelbaar zijn · een agent alléén als het aantal stappen echt onvoorspelbaar is en het model dynamisch moet beslissen. Agents zijn trager, duurder, minder voorspelbaar en lastiger te debuggen. Zie tabblad Beslisregels."
     }
   ],
