@@ -3,12 +3,9 @@
 Ik bouw al twee jaar AI- en automationoplossingen voor e-mailmarketing. Deze roadmap gaat over
 de laag daaronder: zelf kunnen bouwen, repareren en meten wat ik nu samenstel.
 
-De structuur komt uit een artikel van @free_ai_guides (7 juli 2026 · https://x.com/i/article/2074513567701680128);
-de bouwopdrachten van maand 2 t/m 4 zijn van mezelf. Zie [Over de bron](#over-de-bron).
-
 - **Start:** donderdag 30 juli 2026
 - **Einde:** woensdag 18 november 2026 (16 weken)
-- **Tempo:** 15–25 uur per week. Het artikel rekent met 15–20 u/w voor het 4-maandenpad, dus dit tempo haalt het comfortabel.
+- **Tempo:** 15–25 uur per week.
 
 | Maand | Periode | Thema |
 |---|---|---|
@@ -77,32 +74,21 @@ uit mijn eigen vak, zodat elke build ook zonder deze roadmap nut houdt.*
 
 **Maand 2 · LLM-API's** — [details](maand-2-llm-apis/README.md)
 
-- **A. Subject line- en preheader-evaluator.** Claude API met een JSON-schema als output: score, inbox-weergave per client, spamwoord-risico, merkstem-fit met de merkstem als parameter. Draait op zelfverzonnen subject lines en publieke nieuwsbrieven, geen klantdata.
-- **B. Briefing naar campagnedocument.** Tool calling: een input-briefing eruit, mijn vaste documentstructuur erin.
-- **Post:** honderd subject lines door de evaluator, en waar hij er structureel naast zit. De faalgevallen, niet de demo.
+- **A. Subject line- en preheader-checker.** Claude API met een JSON-schema als output, gericht op wat objectief te controleren is: weergave per client met het afkappunt, preheader-lengte, en emoji-rendering per platform. Merkstem is een parameter voor context, geen score. Publieke nieuwsbrieven en zelfverzonnen regels, geen klantdata.
+- **B. Briefing naar campagnedocument.** Tool calling: een input-briefing eruit, mijn vaste documentstructuur erin. Blijft intern; de documentstructuur is werkgevers-IP.
+- **Post:** subject lines uit het corpus door de checker, en waar hij er structureel naast zit. De faalgevallen, niet de demo.
 
 **Maand 3 · RAG en agents** — [details](maand-3-rag-agents/README.md)
 
-- **A. RAG over ESP-documentatie.** Copernica- en Klaviyo-docs in een vector-DB plus een vraag-antwoordlaag. Publieke bron, en hij draagt over klanten heen.
-- **B. Evals op de evaluator uit maand 2.** Vijftig gelabelde subject lines, en meten hoe vaak de prompt het goed heeft. De belangrijkste build van het traject.
-- **C. Journey-monitor.** De generieke versie van het journey-overzicht dat ik nu handmatig bijhoud: adapter per ESP met één vaste output, en twee gescheiden detectoren (stuk = deterministisch, minder = statistisch met drempel). From scratch, op dummy-data.
-- **Posts:** week 9 het journey-patroon (na de nulmeting en het publicatiegesprek) · week 12 de evals, met het getal erbij.
+- **A. Corpus van Nederlandse B2C-nieuwsbrieven.** Eén apart e-mailadres, 40 tot 60 webshops, vanaf week 5 verzamelen. IMAP binnenhalen, HTML naar platte tekst, embeddings, vector-DB met metadata per merk, datum, type en sector. Dezelfde skills als een docs-RAG, maar het levert een bevinding op in plaats van een vraagbaak.
+- **B. Evals op de checker uit maand 2.** Vijftig gelabelde subject lines, getrokken uit het corpus, en meten hoe vaak de prompt het goed heeft. De belangrijkste build.
+- **C. Signaalsplitser.** Een detector die twee soorten signalen strikt gescheiden houdt op synthetische tijdreeksen: stuk is deterministisch, minder is statistisch met drempel, minimumvolume en een voortschrijdend gemiddelde. From scratch, zonder ESP-koppeling.
+- **Posts:** week 9 het journey-patroon (na de nulmeting en het publicatiegesprek) · week 10–11 wat het corpus laat zien · week 12 de evals, met het getal erbij.
 
 **Maand 4 · Shippen** — [details](maand-4-ship-it/README.md)
 
 - De twee beste builds draaibaar maken voor iemand anders: deployment, README, demo.
-- **Posts:** week 13–14 het alerting-ontwerp, "stuk" versus "minder" (toestemming werkgever) · week 16 de eerlijke terugblik met de cijfers, inclusief wat niet werkte.
-
----
-
-## Over de bron
-
-Het bronartikel heet *"You can go from zero to hireable AI engineer in 4 months"*. De inhoud is
-standaard en daarom bruikbaar; de belofte in de kop is dat niet, en die geldt hier sowieso niet.
-Ik heb de baan al. Wat ik hieruit haal is diepte.
-
-De twee beste dingen uit dat artikel houd ik onveranderd: de 30-minutenregel en "alles gaat
-publiek". De projecten van maand 2 t/m 4 heb ik vervangen door de builds hierboven.
+- **Post:** week 13–14 het alerting-ontwerp, "stuk" versus "minder".
 
 ---
 
@@ -143,3 +129,7 @@ blijft opvraagbaar in de git-history:
 ```bash
 git show aee8ab0:ROADMAP.md
 ```
+
+---
+
+**Bron:** de structuur (skills per maand, de twee regels, de vier valkuilen) komt uit een artikel van @free_ai_guides, 7 juli 2026 · https://x.com/i/article/2074513567701680128. De builds van maand 2 t/m 4 zijn van mezelf.
