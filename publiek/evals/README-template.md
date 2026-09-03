@@ -36,9 +36,9 @@ Per promptversie een score per veld, plus het totaal:
 Promptversie: <naam>          n = <aantal gelabelde regels>
 
   veld                     goed      score
-  weergave.afkap_tekens    <n>/<n>   <p>%
-  preheader.body_eet       <n>/<n>   <p>%
-  emoji.fallback           <n>/<n>   <p>%
+  belofte                  <n>/<n>   <p>%
+  preheader_relatie        <n>/<n>   <p>%
+  belofte_ingelost         <n>/<n>   <p>%
   ----------------------------------------
   totaal                   <n>/<n>   <p>%
 ```

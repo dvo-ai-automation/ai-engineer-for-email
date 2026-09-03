@@ -1,20 +1,34 @@
 # Subject line- en preheader-checker
 
-Controleert een subject line plus preheader op wat objectief te controleren is: hoe de regel
-eruitkomt per client, of de preheader past, en hoe emoji renderen. Claude API met een JSON-schema
-als output.
+Classificeert een subject line plus preheader: wat voor belofte wordt er gedaan, hoe verhoudt
+de preheader zich tot de subject line, en wordt die belofte in de body waargemaakt. Claude API
+met een JSON-schema als output.
+
+## Waarom niet de weergave-check
+
+De eerste opzet controleerde het afkappunt per client, de preheaderlengte en emoji-rendering.
+Dat is eruit gegaan: dat doet elke ESP-preview en elke previewtool al. De lezer denkt dan
+"dat heb ik al", en terecht.
+
+Wat niemand heeft is de laag eronder — een instrument dat je over duizend nieuwsbrieven kunt
+halen om te zien wát Nederlandse webshops hun lezers beloven. Daarmee is dit geen los tooltje
+meer maar het meetinstrument voor
+[het corpus](../../../maand-3-rag-agents/projecten/nieuwsbrief-corpus/) in maand 3.
 
 ## Wat het teruggeeft
 
-- `weergave` — per client (Gmail, Outlook, Apple Mail, mobiel), met het afkappunt in tekens en pixels
-- `preheader` — lengte, en of de eerste regel body de preheader opeet
-- `emoji` — rendering en fallback per platform
+- `belofte` — het type belofte: korting, nieuw assortiment, urgentie, redactioneel, service
+- `preheader_relatie` — herhaalt de preheader de subject line, vult hij hem aan, of staat hij los
+- `belofte_ingelost` — komt de belofte terug in de body, ja/nee/niet vast te stellen
+- `merkstem` — gaat er als parameter in, voor context. Er komt geen cijfer op stijl uit: een
+  score op stijl is niet toetsbaar, dus er kan later geen eval tegenaan
 
-De merkstem gaat er als parameter in, voor context. Er komt geen cijfer op stijl uit: een score
-op merkstem is niet toetsbaar, dus er kan later geen eval tegenaan.
+Elk veld hierboven is zo gekozen dat een mens er onafhankelijk een label bij kan zetten. Dat is
+de voorwaarde om er in maand 3 een eval tegenaan te kunnen leggen.
 
-Er zit ook geen spamwoordscore in. Spamwoordenlijsten zijn achterhaald; moderne filters kijken
-naar reputatie, engagement en authenticatie.
+Geen spamwoordscore. Spamwoordenlijsten zijn achterhaald; moderne filters kijken naar reputatie,
+engagement en authenticatie — dat laatste meet de
+[authenticatie-scan](../authenticatie-scan/).
 
 ## Draaien
 
@@ -29,8 +43,11 @@ pip install -r requirements.txt
 ## Status
 
 `hello.py` is de eerste werkende API-call, nog geen checker. Hij vraagt om spamwoorden en is
-daarmee achterhaald door de opzet hierboven; hij blijft staan als eerste call en gaat eruit
-zodra de echte checker draait.
+daarmee dubbel achterhaald; hij blijft staan als eerste call en gaat eruit zodra de echte
+checker draait.
+
+Het schemapatroon dat deze build gebruikt, wordt eerst een week eerder geoefend op de
+[authenticatie-scan](../authenticatie-scan/). Dezelfde skill, twee keer toegepast.
 
 ## Wat er nog niet goed aan is
 

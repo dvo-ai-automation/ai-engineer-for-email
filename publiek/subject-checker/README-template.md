@@ -1,9 +1,12 @@
 # Subject line- en preheader-checker
 
-Controleert een subject line en preheader op wat objectief te controleren is: waar de regel
-afkapt per mailclient, of de preheader past en niet wordt opgegeten door de eerste regel body,
-en hoe emoji renderen per platform. Claude API met een JSON-schema als output, zodat de
-uitkomst per veld te toetsen is in plaats van een oordeel in proza.
+Classificeert een subject line plus preheader: wat voor belofte er gedaan wordt, hoe de
+preheader zich tot de subject line verhoudt, en of die belofte in de body terugkomt. Claude API
+met een JSON-schema als output, zodat elke uitkomst per veld te toetsen is in plaats van een
+oordeel in proza.
+
+Bewust géén weergave-check (afkappunt per client, emoji-rendering): dat doet elke ESP-preview
+al. Dit is een meetinstrument om over een grote hoeveelheid nieuwsbrieven te halen.
 
 ## Hoe je het draait
 
@@ -16,6 +19,12 @@ cp .env.example .env        # zet je ANTHROPIC_API_KEY erin
 
 ```bash
 python check.py --subject "<subject line>" --preheader "<preheader>"
+```
+
+Met de body erbij, zodat `belofte_ingelost` ingevuld kan worden:
+
+```bash
+python check.py --subject "<subject line>" --preheader "<preheader>" --body <bestand.txt>
 ```
 
 Met een merkstem als context:
@@ -35,34 +44,30 @@ JSON, één object per gecontroleerde regel:
 {
   "subject": "<de ingevoerde subject line>",
   "preheader": "<de ingevoerde preheader>",
-  "weergave": {
-    "<client>": { "afkap_tekens": <n>, "afkap_pixels": <n>, "zichtbaar": "<het deel dat overblijft>" }
-  },
-  "preheader_check": {
-    "lengte_tekens": <n>,
-    "body_eet_preheader": <true|false>,
-    "toelichting": "<waarom wel of niet>"
-  },
-  "emoji": [
-    { "teken": "<emoji>", "rendert_op": ["<platform>"], "fallback": "<wat er staat als het niet rendert>" }
-  ]
+  "belofte": "<korting|nieuw_assortiment|urgentie|redactioneel|service>",
+  "preheader_relatie": "<herhaalt|vult_aan|staat_los>",
+  "belofte_ingelost": "<ja|nee|niet_vast_te_stellen>",
+  "toelichting": "<waarom, in één zin per veld>"
 }
 ```
 
-De clients en platforms die daadwerkelijk gecontroleerd worden, staan in `clients.json`.
+Elk veld is zo gekozen dat een mens er onafhankelijk een label bij kan zetten. Dat is de
+voorwaarde om er een eval tegenaan te kunnen leggen; zie `evals/`.
 
 ## Beperkingen
 
 - **Geen spamwoordscore.** Spamwoordenlijsten zijn achterhaald: moderne filters kijken naar
-  reputatie, engagement en authenticatie, niet naar losse woorden. Een lijst zou een getal
-  opleveren dat nergens mee correleert.
+  reputatie, engagement en authenticatie, niet naar losse woorden. Voor dat laatste is er een
+  aparte tool.
 - **Geen score op merkstem.** Een cijfer op stijl is niet toetsbaar en er kan dus geen eval
   tegenaan. De merkstem is er alleen als context voor de toelichting.
-- **Afkappunten zijn een benadering.** Ze komen uit `clients.json`, niet uit een render-engine.
-  Clients wijzigen hun weergave zonder aankondiging; de waarden zijn voor het laatst
-  gecontroleerd op `<datum>`.
-- **Geen voorspelling van open rate.** De tool zegt hoe een regel eruitkomt, niet hoe hij
-  presteert.
+- **`belofte_ingelost` kan alleen mét body.** Zonder `--body` staat dat veld altijd op
+  `niet_vast_te_stellen`, en dat is geen bevinding.
+- **De categorieën zijn een keuze, geen natuurwet.** Ze komen uit `<hoe je ze bepaald hebt>`.
+  Een regel die in twee categorieën past, krijgt er één.
+- **Geen voorspelling van open rate.** De tool zegt wat er beloofd wordt, niet hoe het presteert.
+- **Gemeten kwaliteit: `<score per veld>`, op `<n>` gelabelde regels uit `<m>` merken.**
+  Staat hier nog een punthaak, dan is dit getal niet gemeten en mag je het niet claimen.
 
 ## Wat er nog niet goed aan is
 

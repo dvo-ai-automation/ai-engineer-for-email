@@ -21,11 +21,12 @@ en heeft een eigen README.
 | Pad | Inhoud |
 |---|---|
 | [maand-1-fundament/](maand-1-fundament/) | Python, Git, terminal, API's, SQL |
-| [maand-2-llm-apis/](maand-2-llm-apis/) | Prompting, structured outputs, tool calling, streaming · *subject line-checker · briefing naar campagnedocument* |
+| [maand-2-llm-apis/](maand-2-llm-apis/) | Prompting, structured outputs, tool calling, streaming · *authenticatie-scan · subject line-checker · briefing naar campagnedocument* |
 | [maand-3-rag-agents/](maand-3-rag-agents/) | RAG, vector-DB's, agents, evals · *nieuwsbrief-corpus · evals · signaalsplitser* |
 | [maand-4-ship-it/](maand-4-ship-it/) | Builds draaibaar maken voor iemand anders: deployment, README, demo |
 | [publiek/](publiek/) | README-templates voor de builds die als losse repo uitgerold worden |
-| [ROADMAP.md](ROADMAP.md) | Het plan: doel, de twee regels, de vier valkuilen |
+| [NU.md](NU.md) | **De week waar ik in zit**, per dag, met een klaar-als per stap. Als ik één bestand open, is het dit |
+| [ROADMAP.md](ROADMAP.md) | Het plan: doel, de twee regels, de vier valkuilen, en wat ná dit traject komt |
 | [prompts/](prompts/) | De prompts waarmee ik mezelf laat begeleiden |
 | [docs/](docs/) | Het werkoverzicht, één self-contained HTML-bestand |
 | [notities/](notities/) | Losse aantekeningen en dingen om uit te zoeken |

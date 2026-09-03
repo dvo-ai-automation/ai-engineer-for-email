@@ -19,6 +19,7 @@ wat je van het bouwen hebt geleerd. Dat hoort in de werkbank, niet in de tooldoc
 
 | Template | Status |
 |---|---|
+| [authenticatie-scan/](authenticatie-scan/README-template.md) | Nog niet uitgerold |
 | [subject-checker/](subject-checker/README-template.md) | Nog niet uitgerold |
 | [nieuwsbrief-corpus/](nieuwsbrief-corpus/README-template.md) | Nog niet uitgerold |
 | [evals/](evals/README-template.md) | Nog niet uitgerold |

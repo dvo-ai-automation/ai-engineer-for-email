@@ -389,6 +389,16 @@ const MODS = [
       ],
       oefening:"Geen los promptproject meer: schrijf vijf promptversies van de evaluator (build A) voor dezelfde subject line, draai ze alle vijf en leg de outputs naast elkaar. Bewaren, want dit is de nulmeting voor de evals in Maand 3."
     },
+    { t:"Deterministisch of model", i:"De vraag die v\u00f3\u00f3r elke structured output komt: hoort hier \u00fcberhaupt een model bij? Ge\u00efntroduceerd op DNS-records, waar het antwoord overduidelijk nee is, zodat het contrast blijft hangen voordat het subtiel wordt.",
+      taken:[
+        ["Herken wat een opzoeking is en wat een oordeel is","Een DNS-record zegt wat het zegt: dat parseer je, dat vraag je niet aan een model. Het model komt pas in beeld als er iets van gemaakt moet worden dat niet letterlijk in de bron staat.",[["dnspython \u00b7 docs (gratis)","https://dnspython.readthedocs.io/"]]],
+        ["Ken de drie DMARC-policies","p=none meet wel maar houdt niets tegen, quarantine stuurt naar spam, reject weigert. Het verschil tussen de eerste en de andere twee is de hele post.",[["DMARC.org \u00b7 overview (gratis)","https://dmarc.org/overview/"]]],
+        ["Vang de faalgevallen van een lookup af","Domein bestaat niet, record ontbreekt, time-out. Domeinen zonder record horen leeg in je resultaat te staan, niet te ontbreken.",[]]
+      ],
+      build:"BUILD C \u00b7 Authenticatie-scan. Vraag van de webshops uit de corpuslijst de SPF-, DKIM- en DMARC-records op, parseer de policy eruit en tel hoeveel er in elke categorie vallen. Alles tot en met het tellen is deterministisch en gaat niet door een model; pas daarna zet je er een schema op dat per domein een risico-oordeel in vaste vorm teruggeeft. Dat is het structured-outputs-blok, geoefend op data die je al hebt. En passant levert dit de makkelijkste eval-set van het traject op: een DMARC-verdict heeft een objectief goed antwoord, en dat wil je hebben v\u00f3\u00f3r je in Maand 3 begint te labelen op subject lines waar het label discutabel is. Publieke DNS-data, geen klantdata, geen toestemming nodig.",
+      buildPad:"projecten/authenticatie-scan/",
+      trap:"De domeinlijst komt uit dezelfde aanmeldronde als het nieuwsbrief-corpus. Schrijf elk domein weg tijdens het aanmelden; achteraf reconstrueren is dubbel werk."
+    },
     { t:"Structured outputs", i:"Pick: Instructor (Python) + Pydantic, met de officiële structured-output docs ernaast. De brug tussen een taalmodel en code die op de output kan vertrouwen.",
       taken:[
         ["Definieer een Pydantic-model","Het schema waarmee je afdwingt wat een geldig antwoord is.",[["Pydantic · docs (gratis)","https://docs.pydantic.dev/"]]],
@@ -396,7 +406,8 @@ const MODS = [
         ["Vang weigeringen en onverwachte output af","Nodig zodra je dit in een echte pipeline gebruikt, zoals de bon-/factuurparser.",[]],
         ["Ken het verschil tussen échte structured outputs (schema afgedwongen) en losse JSON-mode (niet gegarandeerd)","Dit onderscheid bepaalt of je code blind kan vertrouwen op de vorm van de output.",[]]
       ],
-      build:"BUILD A · Subject line- en preheader-checker. Claude API met een JSON-schema als output, gericht op wat objectief te controleren is: weergave per client (Gmail, Outlook, Apple Mail, mobiel) met het afkappunt in tekens en pixels, preheader-lengte en of de eerste regel body de preheader opeet, emoji-rendering en fallback per platform. Merkstem blijft een parameter voor context, geen score. Draait op publieke nieuwsbrieven en zelfverzonnen regels: geen klantdata. Elke uitspraak van deze tool moet in Maand 3 tegen een gelabelde set te houden zijn.",
+      build:"BUILD A \u00b7 Subject line- en preheader-checker. Van weergave-check naar classificatie: niet hoe de regel eruitkomt in Gmail (dat doet elke ESP-preview al), maar w\u00e1t er beloofd wordt. Claude API met een JSON-schema als output: belofte (korting, nieuw assortiment, urgentie, redactioneel, service), preheader_relatie (herhaalt, vult aan, of staat los) en belofte_ingelost (komt de belofte terug in de body). Elk veld is zo gekozen dat een mens er onafhankelijk een label bij kan zetten \u2014 dat is de voorwaarde voor de evals in Maand 3. Merkstem blijft een parameter voor context, geen score. Geen spamwoordscore: die lijsten zijn achterhaald, en het stuk dat moderne filters w\u00e9l bekijken meet BUILD C. Draait op publieke nieuwsbrieven en zelfverzonnen regels: geen klantdata.",
+
       buildPad:"projecten/subject-checker/",
       buildLinks:[["Prompt 2 · Structured Data Extraction","#prompts"]],
       trap:"Bekende faalmodus: het model wikkelt de JSON soms in markdown code fences of zet er een vriendelijke zin voor, waardoor je parser stukloopt. Fix: strip de code fences vóór het parsen, en wees expliciet dat je alléén het JSON-object wilt."
@@ -407,7 +418,7 @@ const MODS = [
         ["Werk een runnable notebook door","Zien hoe tool calling in de praktijk werkt, niet alleen lezen.",[["OpenAI Cookbook (gratis)","https://cookbook.openai.com/"]]],
         ["Schrijf tool-beschrijvingen die het model echt kan gebruiken","De kwaliteit van je tool-beschrijvingen telt zwaarder dan beginners verwachten.",[]]
       ],
-      build:"BUILD B · Briefing naar campagnedocument. Een input-briefing eruit, jouw vaste documentstructuur erin. Tools die de briefing uitlezen en per sectie invullen; ontbrekende velden worden benoemd en niet verzonnen. Dit raakt werk dat je nu handmatig doet, dus de kwaliteitslat is die van je eigen output. Deze build blijft intern en verschijnt niet als publieke repo: de documentstructuur is werkgevers-IP.",
+      build:"BUILD B · Briefing naar campagnedocument. Een input-briefing eruit, jouw vaste documentstructuur erin. Tools die de briefing uitlezen en per sectie invullen; ontbrekende velden worden benoemd en niet verzonnen. Dit raakt werk dat je nu handmatig doet, dus de kwaliteitslat is die van je eigen output. Deze build blijft intern en verschijnt niet als publieke repo: de documentstructuur is werkgevers-IP. Daarmee telt hij niet mee als extern bewijs \u2014 als er \u00e9\u00e9n build moet schuiven omdat de maand te vol wordt, is het deze.",
       buildPad:"projecten/briefing-naar-campagnedocument/"
     },
     { t:"Conversation state", i:"Pick: messages-documentatie van beide providers. Modellen hebben geen geheugen tussen calls.",
@@ -498,7 +509,7 @@ const MODS = [
       taken:[
         ["Werk met LlamaIndex als search-first framework","Bundelt chunking, opslag en retrieval in één workflow.",[["LlamaIndex · docs (gratis)","https://docs.llamaindex.ai/"]]]
       ],
-      build:"BUILD A · Corpus van Nederlandse B2C-nieuwsbrieven. Eén apart e-mailadres, 40 tot 60 Nederlandse webshops, vanaf week 5 verzamelen. Binnenhalen via IMAP, HTML parsen naar platte tekst plus subject en preheader, embeddings, vector-DB met metadata per merk, datum, type (promo, transactioneel, redactioneel) en sector. Daarna clusteren en doorzoeken. Levert dezelfde skills als een docs-RAG (chunken, embedden, metadata-filtering, retrieval, reranking), maar produceert een bevinding in plaats van een vraagbaak. Publieke bron, eigen data, geen klantdata, geen toestemming nodig.",
+      build:"BUILD A · Corpus van Nederlandse B2C-nieuwsbrieven. Eén apart e-mailadres, 40 tot 60 Nederlandse webshops, vanaf week 5 verzamelen. Bouw het binnenhalen als iets dat draait zonder dat jij kijkt: idempotent op Message-ID, hervatbaar na een afgebroken run, en het meldt het als er zeven dagen niets binnenkwam \u2014 dit is het enige stuk 'onbewaakt draaien' dat in dit traject past zonder extra build. Verder: IMAP, HTML parsen naar platte tekst plus subject en preheader, embeddings, vector-DB met metadata per merk, datum, type (promo, transactioneel, redactioneel) en sector. Daarna clusteren en doorzoeken. Levert dezelfde skills als een docs-RAG (chunken, embedden, metadata-filtering, retrieval, reranking), maar produceert een bevinding in plaats van een vraagbaak. Publieke bron, eigen data, geen klantdata, geen toestemming nodig.",
       buildPad:"projecten/nieuwsbrief-corpus/",
       trap:"De doorlooptijd is hier de val, niet de techniek. Het corpus moet in week 5 gaan verzamelen, anders is er in Maand 3 te weinig volume om iets over te zeggen. Zonder aanmelden geen build."
     },
@@ -519,7 +530,7 @@ const MODS = [
         ["Beheer state","Nodig zodra een agent meerdere stappen na elkaar zet.",[]],
         ["Maak kennis met LangGraph","Pas ná de from-scratch oefening: dit laat zien wat het framework verbergt.",[["LangGraph · intro (gratis)","https://langchain-ai.github.io/langgraph/"]]]
       ],
-      build:"BUILD C · Signaalsplitser. Een detector die twee soorten signalen strikt gescheiden houdt, op synthetische tijdreeksen zonder ESP-koppeling. STUK is deterministisch: geen verzending uitgevoerd, aantallen op nul, lege feed. MINDER is statistisch: daling boven een drempel, met minimumvolume en een voortschrijdend gemiddelde over vier weken, anders meld je ruis. Die twee door elkaar halen is de klassieke fout in alerting. From scratch, zonder framework. De ESP-adapters en het journey-overzicht horen hier niet in en worden intern gebouwd.",
+      build:"BUILD C · Signaalsplitser. Een detector die twee soorten signalen strikt gescheiden houdt, op synthetische tijdreeksen zonder ESP-koppeling. STUK is deterministisch: geen verzending uitgevoerd, aantallen op nul, lege feed. MINDER is statistisch: daling boven een drempel, met minimumvolume en een voortschrijdend gemiddelde over vier weken, anders meld je ruis. Die twee door elkaar halen is de klassieke fout in alerting. From scratch, zonder framework. De ESP-adapters en het journey-overzicht horen hier niet in en worden intern gebouwd. Deze build levert bewust GEEN post op: op synthetische data is het een ontwerpverhaal, en de eerste reactie is 'op welke data dan?'. Publiceren pas als hij ooit op echt volume draait.",
       buildPad:"projecten/signaalsplitser/",
       trap:"Beslisregel: één model-call als de taak in één prompt past · een vaste workflow als de stappen voorspelbaar zijn · een agent alléén als het aantal stappen echt onvoorspelbaar is en het model dynamisch moet beslissen. Agents zijn trager, duurder, minder voorspelbaar en lastiger te debuggen. Zie tabblad Beslisregels."
     }
@@ -549,7 +560,8 @@ const MODS = [
         ["Package je app met Docker","Maakt je app overdraagbaar naar elke omgeving.",[["Docker · getting-started guide (gratis)","https://docs.docker.com/get-started/"]]],
         ["Deploy die container ergens","De stap die van een lokale demo een echt gebruikte app maakt.",[]]
       ],
-      build:"DE OPDRACHT VAN DEZE MAAND · Pak de twee beste builds uit Maand 2 en 3 en maak ze draaibaar voor iemand anders: gedeployed met harde spending limits, caching en rate limiting, basis-tracing op minstens één ervan, een README volgens de vijf secties, en een demo die het laat zien zonder installatie.",
+      build:"DE OPDRACHT VAN DEZE MAAND \u00b7 Zet een voordeur op het corpus. Iemand plakt een subject line of stuurt zijn eigen nieuwsbrief door, en krijgt terug hoe die zich verhoudt tot wat de Nederlandse webshops in het corpus doen. Dat is de milestone van deze maand letterlijk \u2014 draaibaar voor iemand anders, een demo zonder installatie \u2014 en het hergebruikt de IMAP-inname, de checker en de corpusbenchmark die er dan al staan. Het is ook het enige artefact van het traject dat een e-commerce owner zelf opent; alle andere builds zijn voor de uitvoerder of voor jezelf. Gedeployed met harde spending limits, caching en rate limiting, tracing met Langfuse, een README volgens de vijf secties. Wordt de mail-inname te veel, dan wordt het een plakveld; lager dan dat ga je niet. Daarnaast maak je de authenticatie-scan uit Maand 2 publiek draaibaar.",
+
       buildPad:"maand-4-ship-it/"
     },
     { t:"Kostenbeheersing", i:"Zonder dit maakt een populaire app je failliet in plaats van succesvol.",
@@ -744,51 +756,45 @@ const BRONNEN = [
    heeft een week, een voorwaarde (na welke build of doelstelling), het bewijs dat hij nodig
    heeft, en of er toestemming voor geregeld moet zijn. */
 const POSTS = [
-  { id:"p1", mod:"m2", week:"Week 5", periode:"27 aug – 2 sep",
-    titel:"Waarom het omzetgetal in je journey-dashboard te laag staat",
-    kern:"Consent Mode, thresholding en het attributievenster zorgen er alle drie voor dat de omzet die je per journey rapporteert lager of anders is dan de werkelijke. Leg uit waarom, en wat je eronder zet zodat niemand zich later verslikt in het verschil.",
-    gate:"GEEN. Deze kun je nu al schrijven: hij vraagt geen build en geen afgeronde maand. Doe hem als eerste, want het is de enige die vandaag al af kan.",
-    bewijs:"Mechanisme, geen n. De geloofwaardigheid zit in de uitleg en in een publiek te citeren consent-benchmark, niet in een eigen cijfer.",
+  { id:"p1", mod:"m2", week:"Week 7", periode:"10 – 16 sep",
+    titel:"Wat levert een journey eigenlijk op?",
+    kern:"De drie losse journey-posts uit de oude kalender zijn hier \u00e9\u00e9n post: ze putten alle drie uit hetzelfde klantproject en samen tonen ze geen regel code. Kern is het GA4-sampling-verhaal \u2014 acht maanden opgevraagd, 4% teruggekregen, geen foutmelding \u2014 plus de naamgeving die nergens uit af te leiden is. Sluit af met wat je nu bouwt, dan doet hij ook positioneringswerk.",
+    gate:"GEEN. Deze vraagt geen build en geen afgeronde maand. Het concept staat al in notities/linkedin-posts.md.",
+    bewijs:"Eigen waarneming, geen klantcijfer. Geen merknaam, geen sector, geen aantallen over de klant.",
     toestemming:"" },
-  { id:"p2", mod:"m2", week:"Week 8", periode:"17 – 23 sep",
-    titel:"Honderd echte subject lines door mijn eigen checker, en waar hij structureel faalt",
-    kern:"Niet de demo, de faalgevallen. Welke categorieën subject lines de checker consequent verkeerd beoordeelt, en wat dat zegt over wat een model wel en niet van een inbox begrijpt.",
-    gate:"NA BUILD A (subject-checker) en na honderd echte regels erdoorheen. Zonder die honderd heb je een mening in plaats van een bevinding.",
-    bewijs:"Echte subject lines uit het nieuwsbrief-corpus, niet zelfverzonnen. Noem het aantal doorgemeten regels, uit hoeveel merken ze komen, het schema, de promptversie, en de faalcategorieën met aantallen. Het corpus loopt vanaf week 5, dus in week 8 is er genoeg; tel wat er dan echt in zit.",
+  { id:"p6", mod:"m2", week:"Week 8", periode:"17 \u2013 23 sep",
+    titel:"Ik heb de DMARC-records van N Nederlandse webshops opgevraagd",
+    kern:"Hoeveel van die merken staan op p=none \u2014 dus wel meten, niets tegenhouden. Publieke DNS-data, en de lezer kan het binnen tien minuten op zijn eigen domein nadoen. Dat laatste maakt hem de best deelbare post van Maand 2.",
+    gate:"NA BUILD C (authenticatie-scan), zodra de lijst geteld is. De domeinlijst komt uit dezelfde aanmeldronde als het nieuwsbrief-corpus.",
+    bewijs:"Het werkelijke aantal domeinen, de verdeling over geen / p=none / quarantine / reject, en de datum van meten. De N in de titel vul je pas in als je hem gemeten hebt.",
     toestemming:"" },
-  { id:"p3", mod:"m3", week:"Week 9", periode:"24 – 30 sep",
-    titel:"Er staan journeys live die niemand meer kan benoemen",
-    kern:"Het patroon, niet de klant: bij vrijwel elke partij waar je binnenkomt draaien flows waarvan niemand de status of de bijdrage kent. Wat je bouwde om dat zichtbaar te maken, op mechanismeniveau.",
-    gate:"NA de nulmeting én na het publicatiegesprek. Vraag die toestemming in week 5 aan, niet in week 9, anders schuift de post een maand op.",
-    bewijs:"Het aantal live journeys dat niemand kon benoemen, relatief gebracht. Geen omzet, geen merknaam, geen sector.",
-    toestemming:"TOESTEMMING NODIG · klant. En let op afleidbaarheid: sector plus aantal merken maakt de klant in Nederland herkenbaar, ook zonder naam. Schrijf het als patroon over meerdere klanten." },
-  { id:"p7", mod:"m3", week:"Week 10–11", periode:"1 – 14 okt",
+  { id:"p7", mod:"m3", week:"Week 10\u201311", periode:"1 \u2013 14 okt",
     titel:"Wat duizend Nederlandse nieuwsbrieven laten zien als je ze door embeddings haalt",
     kern:"De clustering: welke groepen er vanzelf uit vallen, welke patronen daarin zitten, en wat dat zegt over hoe Nederlandse webshops hun e-mail inrichten. Beschrijf ook de clusters die je niet had verwacht en de clusters die niets bleken te betekenen.",
-    gate:"NA BUILD A van Maand 3, en pas als het corpus groot genoeg is. Geen post zonder n. Het corpus verzamelt vanaf week 5; is er in week 10 te weinig volume, dan schuift de post op in plaats van dat je de conclusie oprekt.",
-    bewijs:"Het werkelijke aantal mails en het werkelijke aantal merken in het corpus, de clusterverdeling zoals die eruit komt, en de periode waarover verzameld is. Meet alle vier vóór je schrijft; vul hier geen richtgetal in.",
+    gate:"NA BUILD A van Maand 3, en pas als het corpus groot genoeg is. Geen post zonder n. Is er te weinig volume, dan schuift de post op in plaats van dat je de conclusie oprekt.",
+    bewijs:"Het werkelijke aantal mails en het werkelijke aantal merken in het corpus, de clusterverdeling zoals die eruit komt, en de periode waarover verzameld is. Meet alle vier v\u00f3\u00f3r je schrijft; vul hier geen richtgetal in.",
     toestemming:"" },
-  { id:"p4", mod:"m3", week:"Week 12", periode:"15 – 21 okt",
-    titel:"Mijn prompt had het naar eigen zeggen altijd goed. Tegen vijftig gelabelde voorbeelden bleek dat anders",
-    kern:"Het verschil tussen een claim en een getal. Wat een eval-set is, hoe je er een bouwt, en wat er gebeurde toen je je eigen werk ertegen hield.",
-    gate:"NA BUILD B (evals). Dit is de sterkste post van het traject en de enige die niemand kan verzinnen, dus wacht tot het getal er echt is.",
-    bewijs:"Vijftig gelabelde subject lines, getrokken uit het nieuwsbrief-corpus in plaats van zelf verzonnen: noem hoe je ze getrokken hebt en uit hoeveel merken. Verder de score per veld uit het schema, plus het verschil tussen de vijf promptversies uit Maand 2. Het percentage in de titel vul je pas in als je het gemeten hebt.",
+  { id:"p4", mod:"m3", week:"Week 12", periode:"15 \u2013 21 okt",
+    titel:"Hoe weet je of de AI die je subject lines schrijft het goed heeft?",
+    kern:"Zelfde build als altijd, andere ingang. De oude titel praatte tegen engineers; deze praat tegen iemand die net zijn copy door een model is gaan halen en niemand heeft die kan zeggen hoe vaak dat ding ernaast zit. Hier landen ook de faalgevallen van de checker, die eerder een eigen post in week 8 waren.",
+    gate:"NA BUILD B (evals). De sterkste post van het traject en de enige die niemand kan verzinnen, dus wacht tot het getal er echt is.",
+    bewijs:"Vijftig gelabelde subject lines uit het corpus: noem hoe je ze getrokken hebt en uit hoeveel merken. Verder de score per veld uit het schema, plus het verschil tussen de vijf promptversies uit Maand 2.",
     toestemming:"" },
-  { id:"p5", mod:"m4", week:"Week 13–14", periode:"22 okt – 4 nov",
-    titel:"\u2018Stuk\u2019 en \u2018minder\u2019 zijn niet hetzelfde signaal",
-    kern:"Waarom campagne-alerting misgaat als je één drempel over beide legt: je mist storingen, of je leert stakeholders je meldingen weg te klikken. Het onderscheid tussen deterministische en statistische detectie, met de drempels erbij. Alleen de signaalsplitser op synthetische tijdreeksen; de ESP-kant blijft buiten de post.",
-    gate:"NA BUILD C (signaalsplitser), zodra hij op synthetische data draait en je je eigen vals-positieven hebt geteld.",
-    bewijs:"Je eigen drempels en het aantal vals-positieven op je synthetische reeksen, vóór en ná het splitsen van de detectoren. Beide tellen, niet schatten.",
+  { id:"p8", mod:"m4", week:"Week 15\u201316", periode:"5 \u2013 18 nov",
+    titel:"Ik heb er een voordeur op gezet, en dit ging er stuk",
+    kern:"De tool live, plus wat er misging toen er iemand anders dan jij op klikte. Geen lanceerpost zonder die tweede helft \u2014 dat is precies de sectie die bijna niemand schrijft.",
+    gate:"NA de opdracht van Maand 4: het ding draait publiek en er is minstens \u00e9\u00e9n keer iets stukgegaan dat je kunt beschrijven.",
+    bewijs:"De link, en de faalgevallen met wat je eraan veranderd hebt.",
     toestemming:"" }
 ];
 /* Actieve week: week 6 (3-9 sep), Maand 2. Bijgewerkt op 3 sep 2026. */
 const WEEK1 = [
-  "MELD HET E-MAILADRES AAN BIJ 40 TOT 60 WEBSHOPS voor het nieuwsbrief-corpus. Dit had in week 5 gemoeten en is het enige onderdeel dat je niet kunt inhalen door harder te werken: het corpus groeit alleen in echte tijd",
-  "Schrijf post 1 (het omzetgetal in je journey-dashboard). Die heeft geen build en geen afgeronde maand nodig, dus hij kan vandaag af",
-  "Vraag het publicatiegesprek aan bij de klant voor de post van week 9. Nu aanvragen, niet in week 9, anders schuift de post een maand op",
-  "Maak het prompting-blok af: specificiteit boven beleefdheid, chain-of-thought en few-shot, en gevoel krijgen voor wat kleine woordkeuzes met de output doen",
-  "Structured outputs: definieer een Pydantic-model en geef het schema mee aan de API. Dit is de directe voorbereiding op BUILD A",
-  "Bewaar vanaf nu elke promptversie van de checker apart. Die vijf versies zijn de nulmeting voor de evals in maand 3; achteraf reconstrueren lukt niet"
+  "MELD HET E-MAILADRES AAN BIJ 40 TOT 60 WEBSHOPS voor het nieuwsbrief-corpus, en schrijf elk domein tijdens het aanmelden weg in domeinen.txt. Dit had in week 5 gemoeten, is het enige dat je niet kunt inhalen door harder te werken, en diezelfde lijst is de input voor BUILD C",
+  "Zet IMAP aan op dat adres en schrijf een script van vijftien regels dat verbindt en het aantal mails print. Klaar als er 0 op je scherm staat: dan werkt de moeilijkste stap van maand 3 nu al",
+  "BUILD C \u00b7 vraag van \u00e9\u00e9n domein het SPF-record op, daarna van de hele lijst, daarna de DMARC-policy eruit parsen en tellen. Die vier getallen zijn je post van week 8",
+  "Zet post 1 (wat levert een journey eigenlijk op) in de LinkedIn-editor. Publiceren doe je in week 7",
+  "Structured outputs komt in week 7, geoefend op de records die je deze week ophaalt. Niet vooruitlopen",
+  "Dagindeling per dag, met een klaar-als per stap: NU.md in de repo"
 ];
 
 const CIJFERS = {

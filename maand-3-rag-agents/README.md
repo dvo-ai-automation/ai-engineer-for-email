@@ -40,6 +40,7 @@ reranking), maar produceert een bevinding in plaats van een vraagbaak. Publieke 
 geen klantdata, geen toestemming nodig.
 
 - [ ] Warming-up: 20 zinnen embedden en de drie meest vergelijkbare teruggeven, zodat de mechaniek klopt voordat de echte mails erin gaan
+- [ ] **Bouw het binnenhalen als iets dat draait zonder dat jij kijkt**: idempotent op `Message-ID`, hervatbaar na een afgebroken run, en het meldt het als er zeven dagen niets binnenkwam. Dit is het enige stuk "onbewaakt draaien" dat in dit traject past zonder extra build
 - [ ] Binnenhalen via IMAP; HTML parsen naar platte tekst, met subject en preheader apart
 - [ ] Chunken (~500 / overlap ~50), opslaan in Chroma met metadata per merk, datum, type (promo, transactioneel, redactioneel) en sector
 - [ ] Metadata-filtering: op merk, op periode, op type
@@ -76,25 +77,27 @@ die kant blijft intern.
 
 ## Posts deze maand
 
-Volledige kalender met voorwaarden en bewijs: [tabblad Posts in het dashboard](https://dvo-ai-automation.github.io/ai-engineer-for-email/#posts).
-
-**Week 9 (24 – 30 sep) · "Er staan journeys live die niemand meer kan benoemen"**
-Het patroon, niet de klant. **Voorwaarde: de nulmeting vastgelegd én het publicatiegesprek gevoerd**
-(aangevraagd in week 5). Bewijs: het aantal live journeys dat niemand kon benoemen, relatief
-gebracht. Geen omzet, geen merknaam, geen sector — sector plus aantal merken maakt de klant in
-Nederland herkenbaar, ook zonder naam.
+Twee, allebei met een gemeten getal eronder. Volledige kalender:
+[tabblad Posts in het dashboard](https://dvo-ai-automation.github.io/ai-engineer-for-email/#posts).
 
 **Week 10–11 · "Wat duizend Nederlandse nieuwsbrieven laten zien als je ze door embeddings haalt"**
 De clustering, welke patronen eruit vallen en wat dat zegt over hoe Nederlandse webshops hun
-e-mail inrichten. **Voorwaarde: build A af én het corpus groot genoeg.** Geen post zonder n.
-Bewijs: het werkelijke aantal mails en merken, de clusterverdeling en de periode waarover
-verzameld is.
+e-mail inrichten. Ook de clusters die je niet had verwacht en de clusters die niets bleken te
+betekenen. **Voorwaarde: build A af én het corpus groot genoeg.** Geen post zonder n; is er te
+weinig volume, dan schuift de post op in plaats van dat je de conclusie oprekt. Bewijs: het
+werkelijke aantal mails en merken, de clusterverdeling en de periode waarover verzameld is.
 
-**Week 12 (15 – 21 okt) · "Tegen vijftig gelabelde voorbeelden bleek het iets anders"**
-Het verschil tussen een claim en een getal. **Voorwaarde: build B af.** De sterkste post van het
-traject en de enige die niemand kan verzinnen, dus wachten tot het getal er echt is. Bewijs:
-vijftig gelabelde regels uit het corpus, score per veld, plus het verschil tussen de vijf
-promptversies uit maand 2. Het percentage in de titel vul je pas in als je het gemeten hebt.
+**Week 12 (15 – 21 okt) · "Hoe weet je of de AI die je subject lines schrijft het goed heeft?"**
+Zelfde build als altijd, andere ingang. De oude titel ("mijn prompt had het naar eigen zeggen
+altijd goed") praat tegen engineers; deze praat tegen iemand die net zijn copy door een model is
+gaan halen en niemand heeft die kan zeggen hoe vaak dat ding ernaast zit. **Voorwaarde: build B
+af.** Bewijs: vijftig gelabelde regels uit het corpus, hoe je ze getrokken hebt en uit hoeveel
+merken, de score per veld, en het verschil tussen de vijf promptversies uit maand 2. Hier landen
+ook de faalgevallen van de checker, die eerder een eigen post in week 8 waren.
+
+*De signaalsplitser levert deze maand geen post op. Op synthetische data is het een
+ontwerpverhaal, en de eerste reactie is "op welke data dan?". Bouwen wel — hij leert je de
+agent-loop from scratch — publiceren pas als hij ooit op echt volume draait.*
 
 ## Milestone
 

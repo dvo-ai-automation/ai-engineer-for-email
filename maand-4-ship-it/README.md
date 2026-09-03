@@ -15,13 +15,23 @@ Volledige uitwerking: [tabblad Roadmap in het dashboard](https://dvo-ai-automati
 
 ## De opdracht
 
-Pak de twee beste van de vijf builds uit maand 2 en 3 en maak ze draaibaar voor iemand anders.
-Niet alle vijf. Twee, echt af.
+**Zet een voordeur op het corpus.** Iemand plakt een subject line of stuurt zijn eigen
+nieuwsbrief door, en krijgt terug hoe die zich verhoudt tot wat de Nederlandse webshops in het
+corpus doen. Dat is de milestone van deze maand letterlijk — draaibaar voor iemand anders, een
+demo zonder installatie — en het hergebruikt alles wat er in maand 2 en 3 al staat: de
+IMAP-inname, de checker, de corpusbenchmark.
+
+Dit is ook het enige artefact van het hele traject dat een e-commerce owner zelf opent. Alle
+andere builds zijn voor de uitvoerder of voor jezelf.
 
 - [ ] Gedeployed, met harde spending limits, caching en rate limiting
-- [ ] Basis-tracing met Langfuse op minstens één ervan
+- [ ] Basis-tracing met Langfuse
 - [ ] Een README waarmee iemand anders het aan de praat krijgt zonder mij
 - [ ] Een demo die het laat zien zonder dat iemand het hoeft te installeren
+
+**Wordt de mail-inname te veel, dan wordt het een plakveld.** Lager dan dat ga je niet: er moet
+iets zijn dat een ander kan openen. Naast deze build maak je de authenticatie-scan uit maand 2
+publiek draaibaar; die is klein en af te maken naast het bovenstaande.
 
 ## README-structuur voor elk portfolioproject
 
@@ -33,13 +43,13 @@ Niet alle vijf. Twee, echt af.
 
 ## Posts deze maand
 
-Volledige kalender met voorwaarden en bewijs: [tabblad Posts in het dashboard](https://dvo-ai-automation.github.io/ai-engineer-for-email/#posts).
+Eén, volledige kalender in het [tabblad Posts](https://dvo-ai-automation.github.io/ai-engineer-for-email/#posts).
 
-**Week 13–14 (22 okt – 4 nov) · "'Stuk' en 'minder' zijn niet hetzelfde signaal"**
-Waarom alerting misgaat als je één drempel over beide legt. Alleen de signaalsplitser op
-synthetische tijdreeksen; de ESP-kant blijft buiten de post. **Voorwaarde: build C draait op
-synthetische data en je hebt je eigen vals-positieven geteld**, vóór en ná het splitsen van de
-detectoren.
+**Week 15–16 · "Ik heb er een voordeur op gezet, en dit ging er stuk"**
+De tool live, plus wat er misging toen er iemand anders dan ik op klikte. **Voorwaarde: het
+ding draait publiek en er is minstens één keer iets stukgegaan dat je kunt beschrijven.** Bewijs:
+de link, en de faalgevallen met wat je eraan veranderd hebt. Geen lanceerpost zonder die tweede
+helft — dat is precies de sectie die bijna niemand schrijft.
 
 ## Richting kiezen (één)
 
